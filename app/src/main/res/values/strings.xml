@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Open Flood</string>
+
+    <!--Win game dialog-->
+    <string name="win_game_title">Excellent</string>
+    <string name="win_game_text" formatted="false">You flooded the board in %1$d moves</string>
+    <string name="win_game_button">New Game</string>
+
+    <!--Lose game dialog-->
+    <string name="lose_game_title">Game Over</string>
+    <string name="lose_game_button">New Game</string>
+
+    <!--Settings Activity-->
+    <string name="settings_settings">Settings</string>
+    <string name="settings_num_colors">Number of Colors</string>
+    <string name="settings_board_size">Board Size</string>
+    <string name="settings_apply_button">Apply</string>
+
+    <!--Info activity-->
+    <string name="info_version" formatted="false">Version %1$s</string>
+    <string name="info_license">Released under the MIT license</string>
+    <string name="info_source"><a href="http://github.com/gunshippenguin/openflood">github.com/gunshippenguin/openflood</a></string>
+    <string name="info_back">Back</string>
+</resources>
