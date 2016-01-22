@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/info_license"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:id="@+id/infoLicenseTextView"
             android:layout_gravity="center_horizontal" />
 
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:text="@string/info_source"
             android:autoLink="web"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:id="@+id/infoSourceTextView"
             android:layout_gravity="center_horizontal" />
 
