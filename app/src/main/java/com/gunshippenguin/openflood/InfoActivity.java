@@ -26,11 +26,10 @@ public class InfoActivity extends AppCompatActivity {
         PackageInfo pInfo;
         try {
             pInfo = getPackageManager().getPackageInfo(this.getPackageName(), 0);
+            versionTextView.setText(appName + " " + pInfo.versionName);
         } catch (PackageManager.NameNotFoundException e) {
-            return;
+            versionTextView.setText(appName);
         }
-
-        versionTextView.setText(appName + " " + pInfo.versionName);
 
         // Set up the source link
         TextView sourceTextView = (TextView) findViewById(R.id.infoSourceTextView);
