@@ -21,7 +21,6 @@ public class InfoActivity extends AppCompatActivity {
 
         // Set up the first line of the info
         TextView versionTextView = (TextView) findViewById(R.id.infoVersionTextView);
-        String versionText = getResources().getString(R.string.info_version);
         String appName = getResources().getString(R.string.app_name);
 
         PackageInfo pInfo;
@@ -31,8 +30,7 @@ public class InfoActivity extends AppCompatActivity {
             return;
         }
 
-        versionText = String.format(versionText, pInfo.versionName);
-        versionTextView.setText(appName + " " + versionText);
+        versionTextView.setText(appName + " " + pInfo.versionName);
 
         // Set up the source link
         TextView sourceTextView = (TextView) findViewById(R.id.infoSourceTextView);
