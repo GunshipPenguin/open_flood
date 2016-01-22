@@ -12,25 +12,6 @@ import android.widget.Spinner;
  * Activity allowing the user to configure settings.
  */
 public class SettingsActivity extends AppCompatActivity {
-    public static final int boardSizeChoices[] = {
-            10,
-            12,
-            14,
-            18,
-            20,
-            22,
-            24,
-    };
-
-    public static final int numColorsChoices[] = {
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
         final Spinner boardSizeSpinner = (Spinner) findViewById(R.id.boardSizeSpinner);
         ArrayAdapter<String> boardSizesAdapter = new ArrayAdapter<String>(this,
                 R.layout.support_simple_spinner_dropdown_item);
+        final int[] boardSizeChoices = getResources().getIntArray(R.array.boardSizeChoices);;
         for (int currBoardSize : boardSizeChoices) {
             boardSizesAdapter.add(currBoardSize + "x" + currBoardSize);
         }
@@ -56,6 +38,7 @@ public class SettingsActivity extends AppCompatActivity {
         final Spinner numColorsSpinner = (Spinner) findViewById(R.id.numColorsSpinner);
         ArrayAdapter<String> numColorsAdapter = new ArrayAdapter<String>(this,
                 R.layout.support_simple_spinner_dropdown_item);
+        final int[] numColorsChoices = getResources().getIntArray(R.array.numColorsChoices);
         for (int currNumColors : numColorsChoices) {
             numColorsAdapter.add(Integer.toString(currNumColors));
         }
@@ -82,13 +65,5 @@ public class SettingsActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }
-
-    public static int getDefaultBoardSize() {
-        return boardSizeChoices[boardSizeChoices.length / 2];
-    }
-
-    public static int getDefaultNumColors() {
-        return numColorsChoices[numColorsChoices.length / 2];
     }
 }

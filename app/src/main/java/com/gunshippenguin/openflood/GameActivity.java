@@ -39,8 +39,10 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         // Initialize the GameSettings
-        gameSettings = new GameSettings(SettingsActivity.getDefaultBoardSize(),
-                SettingsActivity.getDefaultNumColors());
+        int[] boardSizeChoices = getResources().getIntArray(R.array.boardSizeChoices);
+        int[] numColorsChoices = getResources().getIntArray(R.array.numColorsChoices);
+        gameSettings = new GameSettings(boardSizeChoices[boardSizeChoices.length / 2],
+                numColorsChoices[numColorsChoices.length / 2]);
 
         // Get the FloodView
         floodView = (FloodView) findViewById(R.id.floodView);
