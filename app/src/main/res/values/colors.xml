@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimaryDark">#000000</color>
+
+    <!-- Board Colors -->
+    <color name="hamberMaroon">#813237</color>
+    <color name="hamberBlue">#8296FF</color>
+    <color name="pwGold">#FFD700</color>
+    <color name="pwBlack">#000000</color>
+    <color name="madronaBlue">#1B13C8</color>
+    <color name="madronaGreen">#008834</color>
+    <color name="orange">#CC5200</color>
+    <color name="magenta">#FF00FF</color>
+
+    <!-- Board Color Schemes -->
+    <array name="boardColorScheme">
+        <item>@color/hamberMaroon</item>
+        <item>@color/hamberBlue</item>
+        <item>@color/pwGold</item>
+        <item>@color/pwBlack</item>
+        <item>@color/madronaBlue</item>
+        <item>@color/madronaGreen</item>
+        <item>@color/orange</item>
+        <item>@color/magenta</item>
+    </array>
 </resources>

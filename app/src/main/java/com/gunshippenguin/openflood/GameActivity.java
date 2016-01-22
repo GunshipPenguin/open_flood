@@ -29,17 +29,7 @@ public class GameActivity extends AppCompatActivity {
 
     private int lastColor;
 
-    // Colors to be used for the board
-    private int[] colors = {
-            0xFF813237, // Hamber Maroon
-            0xFF8296FF, // Hamber Blue
-            0xFFFFD700, // PW Gold
-            0xFF000000, // PW Black
-            0xFF1B13C8, // Madrona Blue
-            0xFF008834, // Madrona Green
-            0xFFCC5200, // Orange
-            0xFFFF00FF, // Magenta
-    };
+    // Paints to be used for the board
     private Paint paints[];
 
     @Override
@@ -96,6 +86,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void initPaints() {
+        int[] colors = getResources().getIntArray(R.array.boardColorScheme);
         paints = new Paint[colors.length];
         for (int i = 0; i < colors.length; i++) {
             paints[i] = new Paint();
@@ -125,7 +116,7 @@ public class GameActivity extends AppCompatActivity {
             });
             newButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.MATCH_PARENT, 1.0f));
-            newButton.getBackground().setColorFilter(colors[i], PorterDuff.Mode.MULTIPLY);
+            newButton.getBackground().setColorFilter(paints[i].getColor(), PorterDuff.Mode.MULTIPLY);
 
             newButton.setPadding(20, 20, 20, 20);
             buttonLayout.addView(newButton);
