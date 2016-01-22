@@ -21,14 +21,13 @@ public class FloodView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
+        int dimension = widthSize;
         if (boardSize != 0) {
-            widthSize -= (widthSize % boardSize);
-            heightSize = widthSize;
+            dimension -= (widthSize % boardSize);
         }
 
-        setMeasuredDimension(widthSize, heightSize);
+        setMeasuredDimension(dimension, dimension);
     }
 
     public void setBoardSize(int boardSize) {
