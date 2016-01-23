@@ -17,7 +17,7 @@
     <string name="settings_apply_button">Apply</string>
 
     <!--Info activity-->
-    <string name="info_license">Released under the MIT license</string>
+    <string name="info_license">Released under the MIT License</string>
     <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/gunshippenguin/open_flood</a></string>
     <string name="info_back">Back</string>
 </resources>
