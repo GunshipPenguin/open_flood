@@ -3,7 +3,7 @@
 A flood fill game for Android by GunshipPenguin (Rhys RE).
 
 <a href="https://play.google.com/store/apps/details?id=com.gunshippenguin.openflood">
-    <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge.png" style="width: 220px;"/>
+    <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge.png" width="220"/>
 </a>
 
 ## Gameplay
