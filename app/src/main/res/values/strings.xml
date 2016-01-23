@@ -19,5 +19,12 @@
     <!--Info activity-->
     <string name="info_license">Released under the MIT License</string>
     <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/gunshippenguin/open_flood</a></string>
+    <string name="info_instructions_title">Gameplay</string>
+    <string name="info_instructions">
+        You start in the upper left hand corner of the board. Tap the colored buttons along the
+        bottom of the board to flood all adjacent filled cells with that color. The aim of the game
+        is to try to fill the entire board with a single color in less than the maximum number of
+        allowed moves.
+    </string>
     <string name="info_back">Back</string>
 </resources>
