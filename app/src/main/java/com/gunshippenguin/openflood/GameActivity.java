@@ -1,7 +1,5 @@
 package com.gunshippenguin.openflood;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Paint;
@@ -10,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +17,7 @@ import android.widget.TextView;
  */
 public class GameActivity extends AppCompatActivity {
     private final int UPDATE_SETTINGS = 1;
+    private final int NEW_GAME = 2;
 
     private Game game;
     private GameSettings gameSettings;
@@ -141,54 +139,33 @@ public class GameActivity extends AppCompatActivity {
                     newGame();
                 }
             }
+        } else if (requestCode == NEW_GAME) {
+            newGame();
         }
     }
 
     private void doColor(int color) {
+        if (game.getSteps() >= game.getMaxSteps()) {
+            return;
+        }
+
         game.flood(color);
         floodView.drawGame(game);
         lastColor = color;
         stepsTextView.setText(game.getSteps() + " / " + game.getMaxSteps());
 
-        if (game.checkWin()) {
-            showWinDialog();
-        } else if (game.getSteps() == game.getMaxSteps()) {
-            showLoseDialog();
+        if (game.checkWin() || game.getSteps() == game.getMaxSteps()) {
+            showEndGameActivity();
         }
+
         return;
     }
 
-    public void showLoseDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        Resources res = getResources();
-
-        builder.setTitle(res.getString(R.string.lose_game_title));
-        builder.setPositiveButton(res.getString(R.string.lose_game_button), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                newGame();
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.setCancelable(false);
-        dialog.show();
-    }
-
-    private void showWinDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        Resources res = getResources();
-
-        builder.setTitle(res.getString(R.string.win_game_title));
-        builder.setMessage(String.format(res.getString(R.string.win_game_text), game.getSteps()));
-
-        builder.setPositiveButton(res.getString(R.string.win_game_button), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                newGame();
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.setCancelable(false);
-        dialog.show();
+    private void showEndGameActivity() {
+        Intent launchEndgameIntent = new Intent(GameActivity.this, EndgameActivity.class);
+        launchEndgameIntent.putExtra("gameWon", game.checkWin());
+        launchEndgameIntent.putExtra("steps", game.getSteps());
+        startActivityForResult(launchEndgameIntent, NEW_GAME);
+        return;
     }
 }

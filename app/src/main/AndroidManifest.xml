@@ -21,6 +21,10 @@
         <activity android:name="com.gunshippenguin.openflood.InfoActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".EndgameActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EndGameActivityTheme">
+        </activity>
     </application>
 
 </manifest>

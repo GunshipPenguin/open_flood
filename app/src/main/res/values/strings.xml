@@ -1,14 +1,11 @@
 <resources>
     <string name="app_name">Open Flood</string>
 
-    <!--Win game dialog-->
-    <string name="win_game_title">Excellent</string>
-    <string name="win_game_text" formatted="false">You flooded the board in %1$d moves</string>
-    <string name="win_game_button">New Game</string>
-
-    <!--Lose game dialog-->
-    <string name="lose_game_title">Game Over</string>
-    <string name="lose_game_button">New Game</string>
+    <!-- End game activity -->
+    <string name="endgame_win_title">Excellent</string>
+    <string name="endgame_win_text" formatted="false">You flooded the board in %1$d moves</string>
+    <string name="endgame_lose_title">Game Over</string>
+    <string name="endgame_button">New Game</string>
 
     <!--Settings Activity-->
     <string name="settings_settings">Settings</string>
