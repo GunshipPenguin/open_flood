@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -105,7 +108,7 @@ public class GameActivity extends AppCompatActivity {
         Resources resources = getResources();
         for (int i = 0; i < gameSettings.getNumColors(); i++) {
             final int localI = i;
-            ImageButton newButton = new ImageButton(this);
+            ImageView newButton = new ImageView(this);
             newButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -117,9 +120,12 @@ public class GameActivity extends AppCompatActivity {
             });
             newButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.MATCH_PARENT, 1.0f));
-            newButton.getBackground().setColorFilter(paints[i].getColor(), PorterDuff.Mode.MULTIPLY);
 
-            newButton.setPadding(20, 20, 20, 20);
+            Drawable buttonDrawable = ContextCompat.getDrawable(this, R.drawable.button);
+            buttonDrawable.setColorFilter(paints[i].getColor(), PorterDuff.Mode.SRC_ATOP);
+            newButton.setImageDrawable(buttonDrawable);
+
+            newButton.setPadding(5, 5, 5, 5);
             buttonLayout.addView(newButton);
         }
 
