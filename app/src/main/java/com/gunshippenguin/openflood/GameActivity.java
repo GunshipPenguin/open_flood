@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -52,7 +51,7 @@ public class GameActivity extends AppCompatActivity {
         initPaints();
         floodView.setPaints(paints);
 
-        ImageButton settingsButton = (ImageButton) findViewById(R.id.settingsButton);
+        ImageView settingsButton = (ImageView) findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View v) {
@@ -64,7 +63,7 @@ public class GameActivity extends AppCompatActivity {
       }
         );
 
-        ImageButton infoButton = (ImageButton) findViewById(R.id.infoButton);
+        ImageView infoButton = (ImageView) findViewById(R.id.infoButton);
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +72,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton newGameButton = (ImageButton) findViewById(R.id.newGameButton);
+        ImageView newGameButton = (ImageView) findViewById(R.id.newGameButton);
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
