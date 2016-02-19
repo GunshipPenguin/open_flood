@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Board size and number of colors to default to if saved values cannot be found-->
+    <integer name="default_board_size">18</integer>
+    <integer name="default_num_colors">6</integer>
+
     <!-- Board Size Choices -->
     <integer-array name="boardSizeChoices">
         <item>10</item>

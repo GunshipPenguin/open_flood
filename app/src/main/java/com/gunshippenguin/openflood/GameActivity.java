@@ -1,6 +1,8 @@
 package com.gunshippenguin.openflood;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
@@ -21,9 +23,11 @@ import android.widget.TextView;
 public class GameActivity extends AppCompatActivity {
     private final int UPDATE_SETTINGS = 1;
     private final int NEW_GAME = 2;
+    private final String GAME_SETTINGS_SHAREDPREFS = "com.gunshippenguin.open_flood.shared_prefs_file";
 
     private Game game;
-    private GameSettings gameSettings;
+    private SharedPreferences sp;
+    private SharedPreferences.Editor spEditor;
 
     private FloodView floodView;
     private TextView stepsTextView;
@@ -38,11 +42,9 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        // Initialize the GameSettings
-        int[] boardSizeChoices = getResources().getIntArray(R.array.boardSizeChoices);
-        int[] numColorsChoices = getResources().getIntArray(R.array.numColorsChoices);
-        gameSettings = new GameSettings(boardSizeChoices[boardSizeChoices.length / 2],
-                numColorsChoices[numColorsChoices.length / 2]);
+        // Initialize the SharedPreferences and SharedPreferences editor
+        sp = getSharedPreferences(GAME_SETTINGS_SHAREDPREFS, Context.MODE_PRIVATE);
+        spEditor = sp.edit();
 
         // Get the FloodView
         floodView = (FloodView) findViewById(R.id.floodView);
@@ -56,8 +58,8 @@ public class GameActivity extends AppCompatActivity {
                                               @Override
                                               public void onClick(View v) {
               Intent launchSettingsIntent = new Intent(GameActivity.this, SettingsActivity.class);
-              launchSettingsIntent.putExtra("boardSize", gameSettings.getBoardSize());
-              launchSettingsIntent.putExtra("numColors", gameSettings.getNumColors());
+              launchSettingsIntent.putExtra("boardSize", sp.getInt("board_size", getBoardSize()));
+              launchSettingsIntent.putExtra("numColors", sp.getInt("num_colors", getNumColors()));
               startActivityForResult(launchSettingsIntent, UPDATE_SETTINGS);
           }
       }
@@ -87,6 +89,34 @@ public class GameActivity extends AppCompatActivity {
         newGame();
     }
 
+    private int getBoardSize(){
+        int defaultBoardSize = getResources().getInteger(R.integer.default_board_size);
+        if (!sp.contains("board_size")) {
+            setBoardSize(defaultBoardSize);
+        }
+        return sp.getInt("board_size", defaultBoardSize);
+    }
+
+    private int getNumColors(){
+        int defaultNumColors = getResources().getInteger(R.integer.default_num_colors);
+        if (!sp.contains("num_colors")) {
+            setNumColors(defaultNumColors);
+        }
+        return sp.getInt("num_colors", defaultNumColors);
+    }
+
+    private void setBoardSize(int boardSize){
+        spEditor.putInt("board_size", boardSize);
+        spEditor.apply();
+        return;
+    }
+
+    private void setNumColors(int numColors){
+        spEditor.putInt("num_colors", numColors);
+        spEditor.apply();
+        return;
+    }
+
     private void initPaints() {
         int[] colors = getResources().getIntArray(R.array.boardColorScheme);
         paints = new Paint[colors.length];
@@ -98,14 +128,14 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void newGame() {
-        game = new Game(gameSettings.getBoardSize(), gameSettings.getNumColors());
+        game = new Game(getBoardSize(), getNumColors());
         lastColor = game.getColor(0, 0);
 
         // Add color buttons
         LinearLayout buttonLayout = (LinearLayout) findViewById(R.id.buttonLayout);
         buttonLayout.removeAllViews();
         Resources resources = getResources();
-        for (int i = 0; i < gameSettings.getNumColors(); i++) {
+        for (int i = 0; i < getNumColors(); i++) {
             final int localI = i;
             ImageView newButton = new ImageView(this);
             newButton.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +159,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         stepsTextView.setText(game.getSteps() + " / " + game.getMaxSteps());
-        floodView.setBoardSize(gameSettings.getBoardSize());
+        floodView.setBoardSize(getBoardSize());
         floodView.drawGame(game);
     }
 
@@ -139,10 +169,10 @@ public class GameActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 // Only update the gameSettings and create a new game if they have been changed
-                if (gameSettings.getBoardSize() != extras.getInt("boardSize")
-                        || gameSettings.getNumColors() != extras.getInt("numColors")) {
-                    gameSettings.setBoardSize(extras.getInt("boardSize"));
-                    gameSettings.setNumColors(extras.getInt("numColors"));
+                if (getBoardSize() != extras.getInt("boardSize")
+                        || getNumColors() != extras.getInt("numColors")) {
+                    setBoardSize(extras.getInt("boardSize"));
+                    setNumColors(extras.getInt("numColors"));
                     newGame();
                 }
             }
