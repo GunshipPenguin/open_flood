@@ -34,6 +34,8 @@ public class GameActivity extends AppCompatActivity {
 
     private int lastColor;
 
+    private boolean gameFinished;
+
     // Paints to be used for the board
     private Paint paints[];
 
@@ -129,6 +131,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void newGame() {
         game = new Game(getBoardSize(), getNumColors());
+        gameFinished = false;
         lastColor = game.getColor(0, 0);
 
         // Add color buttons
@@ -182,7 +185,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void doColor(int color) {
-        if (game.getSteps() >= game.getMaxSteps()) {
+        if (gameFinished || game.getSteps() >= game.getMaxSteps()) {
             return;
         }
 
@@ -192,6 +195,7 @@ public class GameActivity extends AppCompatActivity {
         stepsTextView.setText(game.getSteps() + " / " + game.getMaxSteps());
 
         if (game.checkWin() || game.getSteps() == game.getMaxSteps()) {
+            gameFinished = true;
             showEndGameActivity();
         }
 
