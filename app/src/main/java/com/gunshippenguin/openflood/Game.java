@@ -1,5 +1,8 @@
 package com.gunshippenguin.openflood;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Random;
 
 /**
@@ -56,28 +59,37 @@ public class Game {
         return;
     }
 
-    private void floodFill(int x, int y, int targetColor, int replacementColor) {
-        // See if we have a valid position
-        int currCellColor;
-        if (x >= 0 && x < boardSize && y >= 0 && y < boardSize) {
-            currCellColor = board[y][x];
-        } else {
-            return;
-        }
-
-        // Set the color for this cell
+    public void flood(int replacementColor) {
+        int targetColor = board[0][0];
         if (targetColor == replacementColor) {
             return;
-        } else if (currCellColor != targetColor) {
-            return;
         }
-        board[y][x] = replacementColor;
 
-        // Continue with recursion
-        floodFill(x + 1, y, targetColor, replacementColor);
-        floodFill(x - 1, y, targetColor, replacementColor);
-        floodFill(x, y + 1, targetColor, replacementColor);
-        floodFill(x, y - 1, targetColor, replacementColor);
+        Queue<BoardPoint> queue = new LinkedList<BoardPoint>();
+        ArrayList<BoardPoint> processed = new ArrayList<BoardPoint>();
+
+        queue.add(new BoardPoint(0, 0));
+
+        BoardPoint currPoint;
+        while (!queue.isEmpty()) {
+            currPoint = queue.remove();
+            if (board[currPoint.getY()][currPoint.getX()] == targetColor) {
+                board[currPoint.getY()][currPoint.getX()] = replacementColor;
+                if (currPoint.getX() != 0 && !processed.contains(currPoint)) {
+                    queue.add(new BoardPoint(currPoint.getX() - 1, currPoint.getY()));
+                }
+                if (currPoint.getX() != boardSize - 1 && !processed.contains(currPoint)) {
+                    queue.add(new BoardPoint(currPoint.getX() + 1, currPoint.getY()));
+                }
+                if (currPoint.getY() != 0 && !processed.contains(currPoint)) {
+                    queue.add(new BoardPoint(currPoint.getX(), currPoint.getY() - 1));
+                }
+                if (currPoint.getY() != boardSize - 1 && !processed.contains(currPoint)) {
+                    queue.add(new BoardPoint(currPoint.getX(), currPoint.getY() + 1));
+                }
+            }
+        }
+        steps++;
         return;
     }
 
@@ -94,9 +106,29 @@ public class Game {
         return true;
     }
 
-    public void flood(int color) {
-        floodFill(0, 0, board[0][0], color);
-        steps++;
-        return;
+    private class BoardPoint {
+        int x, y;
+
+        public BoardPoint(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public int getY() {
+            return y;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (!BoardPoint.class.isAssignableFrom(obj.getClass())) {
+                return false;
+            }
+            BoardPoint bp = (BoardPoint) obj;
+            return (this.x == bp.getX()) && (this.y == bp.getY());
+        }
     }
 }
