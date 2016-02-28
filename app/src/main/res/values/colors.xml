@@ -3,24 +3,23 @@
     <color name="colorPrimaryDark">#000000</color>
 
     <!-- Board Colors -->
-    <color name="hamberMaroon">#813237</color>
-    <color name="hamberBlue">#8296FF</color>
-    <color name="pwGold">#FFD700</color>
-    <color name="pwBlack">#000000</color>
-    <color name="madronaBlue">#1B13C8</color>
-    <color name="madronaGreen">#008834</color>
-    <color name="orange">#CC5200</color>
-    <color name="magenta">#FF00FF</color>
+    <color name="red">#e51c23</color>
+    <color name="blue">#5677fc</color>
+    <color name="green">#259b24</color>
+    <color name="yellow">#ffc107</color>
+    <color name="orange">#ff5722</color>
+    <color name="purple">#9c27b0</color>
+    <color name="cyan">#18ffff</color>
+    <color name="pink">#ff5177</color>
 
-    <!-- Board Color Schemes -->
     <array name="boardColorScheme">
-        <item>@color/hamberMaroon</item>
-        <item>@color/hamberBlue</item>
-        <item>@color/pwGold</item>
-        <item>@color/pwBlack</item>
-        <item>@color/madronaBlue</item>
-        <item>@color/madronaGreen</item>
+        <item>@color/red</item>
+        <item>@color/blue</item>
+        <item>@color/green</item>
+        <item>@color/yellow</item>
         <item>@color/orange</item>
-        <item>@color/magenta</item>
+        <item>@color/purple</item>
+        <item>@color/cyan</item>
+        <item>@color/pink</item>
     </array>
 </resources>
