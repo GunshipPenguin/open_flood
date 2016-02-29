@@ -6,6 +6,7 @@
     <string name="endgame_win_text" formatted="false">You flooded the board in %1$d moves</string>
     <string name="endgame_lose_title">Game Over</string>
     <string name="endgame_button">New Game</string>
+    <string name="endgame_replay">Replay Board</string>
 
     <!--Settings Activity-->
     <string name="settings_settings">Settings</string>

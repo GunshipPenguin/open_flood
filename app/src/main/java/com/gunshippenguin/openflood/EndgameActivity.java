@@ -1,5 +1,6 @@
 package com.gunshippenguin.openflood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -45,12 +46,28 @@ public class EndgameActivity extends AppCompatActivity {
             endgameTextView.setVisibility(View.GONE);
         }
 
+        // Show the replay butotn if the game has been lost
+        Button replayButton = (Button) findViewById(R.id.replayButton);
+        if (gameWon) {
+            replayButton.setVisibility(View.GONE);
+        } else {
+            replayButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("replayGame", true);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
+                }
+            });
+        }
+
         // Set up the new game button callback
         Button newGameButton = (Button) findViewById(R.id.newGameButton);
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResult(RESULT_OK);
+                setResult(RESULT_OK, new Intent());
                 finish();
             }
         });

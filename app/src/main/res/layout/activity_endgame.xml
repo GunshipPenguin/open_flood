@@ -22,10 +22,23 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/endgame_button"
-        android:id="@+id/newGameButton"
-        android:layout_gravity="end" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/endgame_replay"
+            android:id="@+id/replayButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/endgame_button"
+            android:id="@+id/newGameButton" />
+    </LinearLayout>
+
 </LinearLayout>

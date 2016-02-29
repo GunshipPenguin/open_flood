@@ -1,6 +1,7 @@
 package com.gunshippenguin.openflood;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -9,6 +10,7 @@ import java.util.Random;
  * Class representing a game in progress.
  */
 public class Game {
+    private int initialBoard[][];
     private int board[][];
     private int boardSize;
 
@@ -56,6 +58,19 @@ public class Game {
                 board[y][x] = r.nextInt(numColors);
             }
         }
+        initialBoard = new int[board.length][board.length];
+        for (int i = 0; i < initialBoard.length; i++) {
+            initialBoard[i] = Arrays.copyOf(board[i], board[i].length);
+        }
+        return;
+    }
+
+    public void resetGame(){
+        board = new int[initialBoard.length][initialBoard.length];
+        for (int i = 0; i < board.length; i++) {
+            board[i] = Arrays.copyOf(initialBoard[i], initialBoard[i].length);
+        }
+        steps = 0;
         return;
     }
 
