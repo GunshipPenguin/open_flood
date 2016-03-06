@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,7 +24,6 @@ import android.widget.TextView;
 public class GameActivity extends AppCompatActivity {
     private final int UPDATE_SETTINGS = 1;
     private final int NEW_GAME = 2;
-    private final String GAME_SETTINGS_SHAREDPREFS = "com.gunshippenguin.open_flood.shared_prefs_file";
 
     private Game game;
     private SharedPreferences sp;
@@ -45,7 +45,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         // Initialize the SharedPreferences and SharedPreferences editor
-        sp = getSharedPreferences(GAME_SETTINGS_SHAREDPREFS, Context.MODE_PRIVATE);
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
         spEditor = sp.edit();
 
         // Get the FloodView
@@ -94,7 +94,8 @@ public class GameActivity extends AppCompatActivity {
     private int getBoardSize(){
         int defaultBoardSize = getResources().getInteger(R.integer.default_board_size);
         if (!sp.contains("board_size")) {
-            setBoardSize(defaultBoardSize);
+            spEditor.putInt("board_size", defaultBoardSize);
+            spEditor.apply();
         }
         return sp.getInt("board_size", defaultBoardSize);
     }
@@ -102,21 +103,10 @@ public class GameActivity extends AppCompatActivity {
     private int getNumColors(){
         int defaultNumColors = getResources().getInteger(R.integer.default_num_colors);
         if (!sp.contains("num_colors")) {
-            setNumColors(defaultNumColors);
+            spEditor.putInt("num_colors", defaultNumColors);
+            spEditor.apply();
         }
         return sp.getInt("num_colors", defaultNumColors);
-    }
-
-    private void setBoardSize(int boardSize){
-        spEditor.putInt("board_size", boardSize);
-        spEditor.apply();
-        return;
-    }
-
-    private void setNumColors(int numColors){
-        spEditor.putInt("num_colors", numColors);
-        spEditor.apply();
-        return;
     }
 
     private void initPaints() {
@@ -180,11 +170,8 @@ public class GameActivity extends AppCompatActivity {
         if (requestCode == UPDATE_SETTINGS) {
             if (resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
-                // Only update the gameSettings and create a new game if they have been changed
-                if (getBoardSize() != extras.getInt("boardSize")
-                        || getNumColors() != extras.getInt("numColors")) {
-                    setBoardSize(extras.getInt("boardSize"));
-                    setNumColors(extras.getInt("numColors"));
+                // Only start a new game if the settings have been changed
+                if (extras.getBoolean("settingsChanged")) {
                     newGame();
                 }
             }
