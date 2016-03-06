@@ -86,7 +86,7 @@ public class SettingsActivity extends AppCompatActivity {
         // Update number of colors
         int selectedNumColors = numColorsChoices[numColorsSpinner.getSelectedItemPosition()];
         int defaultNumColors = getResources().getInteger(R.integer.default_num_colors);
-        if (selectedBoardSize != sp.getInt("num_colors", defaultNumColors)) {
+        if (selectedNumColors != sp.getInt("num_colors", defaultNumColors)) {
             settingsChanged = true;
             spEditor.putInt("num_colors", selectedNumColors);
             spEditor.apply();
