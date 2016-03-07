@@ -22,6 +22,8 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+
         // Set up the board size spinner
         boardSizeSpinner = (Spinner) findViewById(R.id.boardSizeSpinner);
         ArrayAdapter<String> boardSizesAdapter = new ArrayAdapter<String>(this,
@@ -32,7 +34,8 @@ public class SettingsActivity extends AppCompatActivity {
         }
         boardSizeSpinner.setAdapter(boardSizesAdapter);
 
-        int currBoardSize = getIntent().getExtras().getInt("boardSize");
+        int currBoardSize = sp.getInt("board_size",
+                getResources().getInteger(R.integer.default_board_size));
         for (int i = 0; i < boardSizeChoices.length; i++) {
             if (boardSizeChoices[i] == currBoardSize) {
                 boardSizeSpinner.setSelection(i);
@@ -49,7 +52,8 @@ public class SettingsActivity extends AppCompatActivity {
         }
         numColorsSpinner.setAdapter(numColorsAdapter);
 
-        int currNumColors = getIntent().getExtras().getInt("numColors");
+        int currNumColors = sp.getInt("num_colors",
+                getResources().getInteger(R.integer.default_num_colors));
         for (int i = 0; i < numColorsChoices.length; i++) {
             if (numColorsChoices[i] == currNumColors) {
                 numColorsSpinner.setSelection(i);

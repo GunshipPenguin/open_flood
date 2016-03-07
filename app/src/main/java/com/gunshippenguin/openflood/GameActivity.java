@@ -56,8 +56,6 @@ public class GameActivity extends AppCompatActivity {
                                               @Override
                                               public void onClick(View v) {
               Intent launchSettingsIntent = new Intent(GameActivity.this, SettingsActivity.class);
-              launchSettingsIntent.putExtra("boardSize", sp.getInt("board_size", getBoardSize()));
-              launchSettingsIntent.putExtra("numColors", sp.getInt("num_colors", getNumColors()));
               startActivityForResult(launchSettingsIntent, UPDATE_SETTINGS);
           }
       }
