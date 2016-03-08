@@ -30,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
         boardSizeSpinner = (Spinner) findViewById(R.id.boardSizeSpinner);
         ArrayAdapter<String> boardSizesAdapter = new ArrayAdapter<String>(this,
                 R.layout.support_simple_spinner_dropdown_item);
-        boardSizeChoices = getResources().getIntArray(R.array.boardSizeChoices);;
+        boardSizeChoices = getResources().getIntArray(R.array.boardSizeChoices);
         for (int currBoardSize : boardSizeChoices) {
             boardSizesAdapter.add(currBoardSize + "x" + currBoardSize);
         }
