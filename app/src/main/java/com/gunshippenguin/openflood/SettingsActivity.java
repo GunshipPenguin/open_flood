@@ -28,37 +28,31 @@ public class SettingsActivity extends AppCompatActivity {
 
         // Set up the board size spinner
         boardSizeSpinner = (Spinner) findViewById(R.id.boardSizeSpinner);
-        ArrayAdapter<String> boardSizesAdapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<BoardSize> boardSizesAdapter = new ArrayAdapter<BoardSize>(this,
                 R.layout.support_simple_spinner_dropdown_item);
         boardSizeChoices = getResources().getIntArray(R.array.boardSizeChoices);
-        for (int currBoardSize : boardSizeChoices) {
-            boardSizesAdapter.add(currBoardSize + "x" + currBoardSize);
-        }
-        boardSizeSpinner.setAdapter(boardSizesAdapter);
-
         int currBoardSize = sp.getInt("board_size",
                 getResources().getInteger(R.integer.default_board_size));
-        for (int i = 0; i < boardSizeChoices.length; i++) {
-            if (boardSizeChoices[i] == currBoardSize) {
-                boardSizeSpinner.setSelection(i);
+        boardSizeSpinner.setAdapter(boardSizesAdapter);
+        for (int bs : boardSizeChoices) {
+            boardSizesAdapter.add(new BoardSize(bs));
+            if (bs == currBoardSize) {
+                boardSizeSpinner.setSelection(boardSizesAdapter.getCount() - 1);
             }
         }
 
         // Set up the num colors spinner
         numColorsSpinner = (Spinner) findViewById(R.id.numColorsSpinner);
-        ArrayAdapter<String> numColorsAdapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<ColorNum> numColorsAdapter = new ArrayAdapter<ColorNum>(this,
                 R.layout.support_simple_spinner_dropdown_item);
         numColorsChoices = getResources().getIntArray(R.array.numColorsChoices);
-        for (int currNumColors : numColorsChoices) {
-            numColorsAdapter.add(Integer.toString(currNumColors));
-        }
-        numColorsSpinner.setAdapter(numColorsAdapter);
-
         int currNumColors = sp.getInt("num_colors",
                 getResources().getInteger(R.integer.default_num_colors));
-        for (int i = 0; i < numColorsChoices.length; i++) {
-            if (numColorsChoices[i] == currNumColors) {
-                numColorsSpinner.setSelection(i);
+        numColorsSpinner.setAdapter(numColorsAdapter);
+        for (int nc : numColorsChoices) {
+            numColorsAdapter.add(new ColorNum(nc));
+            if (nc == currNumColors) {
+                numColorsSpinner.setSelection(numColorsAdapter.getCount() - 1);
             }
         }
 
@@ -85,7 +79,7 @@ public class SettingsActivity extends AppCompatActivity {
         boolean settingsChanged = false;
 
         // Update boardSize
-        int selectedBoardSize = boardSizeChoices[boardSizeSpinner.getSelectedItemPosition()];
+        int selectedBoardSize = ((BoardSize) boardSizeSpinner.getSelectedItem()).getBoardSize();
         int defaultBoardSize = getResources().getInteger(R.integer.default_board_size);
         if (selectedBoardSize != sp.getInt("board_size", defaultBoardSize)) {
             settingsChanged = true;
@@ -93,7 +87,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         // Update number of colors
-        int selectedNumColors = numColorsChoices[numColorsSpinner.getSelectedItemPosition()];
+        int selectedNumColors = ((ColorNum) numColorsSpinner.getSelectedItem()).getColorNum();
         int defaultNumColors = getResources().getInteger(R.integer.default_num_colors);
         if (selectedNumColors != sp.getInt("num_colors", defaultNumColors)) {
             settingsChanged = true;
@@ -106,4 +100,37 @@ public class SettingsActivity extends AppCompatActivity {
         spEditor.apply();
         return settingsChanged;
     }
+
+    private class BoardSize {
+        private int boardSize;
+        public BoardSize(int boardSize) {
+            this.boardSize = boardSize;
+        }
+
+        public int getBoardSize() {
+            return boardSize;
+        }
+
+        @Override
+        public String toString() {
+            return boardSize + "x" + boardSize;
+        }
+    }
+
+    private class ColorNum {
+        private int colorNum;
+        public ColorNum(int colorNumber) {
+            this.colorNum = colorNumber;
+        }
+
+        public int getColorNum() {
+            return colorNum;
+        }
+
+        @Override
+        public String toString() {
+            return Integer.toString(colorNum);
+        }
+    }
+
 }
