@@ -36,7 +36,11 @@ public class ColorButton extends View {
 
     @Override
     public void onSizeChanged(int w, int h, int oldw, int oldh) {
-        textPaint.setTextSize(getHeight());
+        if (w > h) {
+            textPaint.setTextSize(h);
+        } else {
+            textPaint.setTextSize(w);
+        }
     }
 
     @Override
