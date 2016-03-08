@@ -30,7 +30,7 @@ public class ColorButton extends View {
         return;
     }
 
-    public void setText(String text) {
+    public void setColorBlindText(String text) {
         this.text = text;
     }
 
