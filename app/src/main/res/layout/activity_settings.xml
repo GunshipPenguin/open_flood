@@ -83,6 +83,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/boardSizeSpinner" />
 
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_color_blind"
+                android:id="@+id/colorBlindCheckBox" />
+
         </LinearLayout>
 
         <LinearLayout

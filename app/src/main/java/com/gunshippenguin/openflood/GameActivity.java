@@ -147,6 +147,7 @@ public class GameActivity extends AppCompatActivity {
                     ViewGroup.LayoutParams.MATCH_PARENT, 1.0f));
             newButton.setPadding(5, 5, 5, 5);
 
+            newButton.setText(Integer.toString(i + 1));
             newButton.setColor(paints[i].getColor());
             buttonLayout.addView(newButton);
         }

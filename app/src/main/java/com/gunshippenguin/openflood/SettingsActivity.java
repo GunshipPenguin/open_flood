@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 
 /**
@@ -15,6 +16,7 @@ import android.widget.Spinner;
  */
 public class SettingsActivity extends AppCompatActivity {
     Spinner boardSizeSpinner, numColorsSpinner;
+    CheckBox colorBlindCheckBox;
     int[] boardSizeChoices, numColorsChoices;
 
     @Override
@@ -60,6 +62,10 @@ public class SettingsActivity extends AppCompatActivity {
             }
         }
 
+        // Set up the color blind checkbox
+        colorBlindCheckBox = (CheckBox) findViewById(R.id.colorBlindCheckBox);
+        colorBlindCheckBox.setChecked(sp.getBoolean("color_blind_mode", false));
+
         // Set up the apply button
         Button applyButton = (Button) findViewById(R.id.applyButton);
         applyButton.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +90,6 @@ public class SettingsActivity extends AppCompatActivity {
         if (selectedBoardSize != sp.getInt("board_size", defaultBoardSize)) {
             settingsChanged = true;
             spEditor.putInt("board_size", selectedBoardSize);
-            spEditor.apply();
         }
 
         // Update number of colors
@@ -93,9 +98,12 @@ public class SettingsActivity extends AppCompatActivity {
         if (selectedNumColors != sp.getInt("num_colors", defaultNumColors)) {
             settingsChanged = true;
             spEditor.putInt("num_colors", selectedNumColors);
-            spEditor.apply();
         }
 
+        // Update color blind mode
+        spEditor.putBoolean("color_blind_mode", colorBlindCheckBox.isChecked());
+
+        spEditor.apply();
         return settingsChanged;
     }
 }

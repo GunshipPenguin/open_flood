@@ -13,6 +13,7 @@
     <string name="settings_num_colors">Number of Colors</string>
     <string name="settings_board_size">Board Size</string>
     <string name="settings_apply_button">Apply</string>
+    <string name="settings_color_blind">Color Blind Mode</string>
 
     <!--Info activity-->
     <string name="info_license">Released under the MIT License</string>
