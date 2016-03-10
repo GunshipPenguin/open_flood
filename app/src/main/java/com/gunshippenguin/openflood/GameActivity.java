@@ -168,10 +168,12 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         } else if (requestCode == NEW_GAME) {
-            if (data.getBooleanExtra("replayGame", false)){
-                resetGame();
-            } else {
-                newGame();
+            if (resultCode == RESULT_OK) {
+                if (data.getBooleanExtra("replayGame", false)) {
+                    resetGame();
+                } else {
+                    newGame();
+                }
             }
         }
     }
