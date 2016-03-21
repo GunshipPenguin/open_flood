@@ -67,6 +67,7 @@ public class FloodView extends View {
 
     public void setPaints(Paint[] paints) {
         this.paints = paints;
+        invalidate();
         return;
     }
 

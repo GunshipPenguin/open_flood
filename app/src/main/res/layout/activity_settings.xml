@@ -92,6 +92,13 @@
                 android:textSize="@dimen/small_text_size"
                 android:id="@+id/colorBlindCheckBox" />
 
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_old_colors"
+                android:textSize="@dimen/small_text_size"
+                android:id="@+id/oldColorsCheckBox" />
+
         </LinearLayout>
 
         <LinearLayout

@@ -104,7 +104,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void initPaints() {
-        int[] colors = getResources().getIntArray(R.array.boardColorScheme);
+        int[] colors;
+        if (sp.getBoolean("use_old_colors", false)){
+            colors = getResources().getIntArray(R.array.oldBoardColorScheme);
+        } else {
+            colors = getResources().getIntArray(R.array.boardColorScheme);
+        }
+
         paints = new Paint[colors.length];
         for (int i = 0; i < colors.length; i++) {
             paints[i] = new Paint();
@@ -127,6 +133,14 @@ public class GameActivity extends AppCompatActivity {
         gameFinished = false;
         lastColor = game.getColor(0, 0);
 
+        layoutColorButtons();
+
+        stepsTextView.setText(game.getSteps() + " / " + game.getMaxSteps());
+        floodView.setBoardSize(getBoardSize());
+        floodView.drawGame(game);
+    }
+
+    private void layoutColorButtons() {
         // Add color buttons
         LinearLayout buttonLayout = (LinearLayout) findViewById(R.id.buttonLayout);
         buttonLayout.removeAllViews();
@@ -151,10 +165,7 @@ public class GameActivity extends AppCompatActivity {
             newButton.setColor(paints[i].getColor());
             buttonLayout.addView(newButton);
         }
-
-        stepsTextView.setText(game.getSteps() + " / " + game.getMaxSteps());
-        floodView.setBoardSize(getBoardSize());
-        floodView.drawGame(game);
+        return;
     }
 
     @Override
@@ -163,8 +174,13 @@ public class GameActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 // Only start a new game if the settings have been changed
-                if (extras.getBoolean("settingsChanged")) {
+                if (extras.getBoolean("gameSettingsChanged")) {
                     newGame();
+                }
+                if (extras.getBoolean("colorSettingsChanged")) {
+                    initPaints();
+                    floodView.setPaints(paints);
+                    layoutColorButtons();
                 }
             }
         } else if (requestCode == NEW_GAME) {

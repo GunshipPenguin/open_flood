@@ -16,7 +16,7 @@ import android.widget.Spinner;
  */
 public class SettingsActivity extends AppCompatActivity {
     Spinner boardSizeSpinner, numColorsSpinner;
-    CheckBox colorBlindCheckBox;
+    CheckBox colorBlindCheckBox, oldColorsCheckBox;
     int[] boardSizeChoices, numColorsChoices;
 
     @Override
@@ -60,29 +60,34 @@ public class SettingsActivity extends AppCompatActivity {
         colorBlindCheckBox = (CheckBox) findViewById(R.id.colorBlindCheckBox);
         colorBlindCheckBox.setChecked(sp.getBoolean("color_blind_mode", false));
 
+        // Set up the old color scheme checkbox
+        oldColorsCheckBox = (CheckBox) findViewById(R.id.oldColorsCheckBox);
+        oldColorsCheckBox.setChecked(sp.getBoolean("use_old_colors", false));
+
         // Set up the apply button
         Button applyButton = (Button) findViewById(R.id.applyButton);
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent dataIntent = new Intent();
-                dataIntent.putExtra("settingsChanged", saveSettings());
-                setResult(RESULT_OK, dataIntent);
+                Intent s = saveSettings();
+                setResult(RESULT_OK, s);
                 finish();
             }
         });
     }
 
-    private boolean saveSettings() {
+    private Intent saveSettings() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor spEditor = sp.edit();
-        boolean settingsChanged = false;
+        Intent dataIntent = new Intent();
+        dataIntent.putExtra("gameSettingsChanged", false);
+        dataIntent.putExtra("colorSettingsChanged", false);
 
         // Update boardSize
         int selectedBoardSize = ((BoardSize) boardSizeSpinner.getSelectedItem()).getBoardSize();
         int defaultBoardSize = getResources().getInteger(R.integer.default_board_size);
         if (selectedBoardSize != sp.getInt("board_size", defaultBoardSize)) {
-            settingsChanged = true;
+            dataIntent.putExtra("gameSettingsChanged", true);
             spEditor.putInt("board_size", selectedBoardSize);
         }
 
@@ -90,15 +95,26 @@ public class SettingsActivity extends AppCompatActivity {
         int selectedNumColors = ((ColorNum) numColorsSpinner.getSelectedItem()).getColorNum();
         int defaultNumColors = getResources().getInteger(R.integer.default_num_colors);
         if (selectedNumColors != sp.getInt("num_colors", defaultNumColors)) {
-            settingsChanged = true;
+            dataIntent.putExtra("gameSettingsChanged", true);
             spEditor.putInt("num_colors", selectedNumColors);
         }
 
         // Update color blind mode
-        spEditor.putBoolean("color_blind_mode", colorBlindCheckBox.isChecked());
+        boolean selectedColorBlindMode = colorBlindCheckBox.isChecked();
+        if (selectedColorBlindMode != sp.getBoolean("color_blind_mode", false)) {
+            dataIntent.putExtra("colorSettingsChanged", true);
+            spEditor.putBoolean("color_blind_mode", selectedColorBlindMode);
+        }
+
+        // Update whether or not to use the old color scheme
+        boolean selectedOldColorScheme = oldColorsCheckBox.isChecked();
+        if (selectedOldColorScheme != sp.getBoolean("use_old_colors", false)) {
+            dataIntent.putExtra("colorSettingsChanged", true);
+            spEditor.putBoolean("use_old_colors", selectedOldColorScheme);
+        }
 
         spEditor.apply();
-        return settingsChanged;
+        return dataIntent;
     }
 
     private class BoardSize {

@@ -14,6 +14,7 @@
     <string name="settings_board_size">Board Size</string>
     <string name="settings_apply_button">Apply</string>
     <string name="settings_color_blind">Color Blind Mode</string>
+    <string name="settings_old_colors">Old Color Scheme</string>
 
     <!--Info activity-->
     <string name="info_license">Released under the MIT License</string>
