@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="box_margins">5dp</dimen>
+
+    <dimen name="large_text_size">55sp</dimen>
+    <dimen name="medium_text_size">40sp</dimen>
+    <dimen name="small_text_size">30sp</dimen>
+
+    <dimen name="color_button_padding">5dp</dimen>
+    <dimen name="outer_layout_padding">5dp</dimen>
+    <dimen name="endgame_padding">15dp</dimen>
+</resources>

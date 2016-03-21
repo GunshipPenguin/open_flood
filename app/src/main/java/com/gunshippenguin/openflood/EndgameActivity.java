@@ -19,9 +19,9 @@ public class EndgameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_endgame);
 
-        // Fill 90% of the screen with the dialog
+        // Fill 95% of the screen with the dialog
         DisplayMetrics metrics = getResources().getDisplayMetrics();
-        int screenWidth = (int) (metrics.widthPixels * 0.90);
+        int screenWidth = (int) (metrics.widthPixels * 0.95);
         getWindow().setLayout(screenWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         setFinishOnTouchOutside(false);

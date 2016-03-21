@@ -3,14 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:padding="5dp">
+    android:padding="@dimen/outer_layout_padding">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_box"
-        android:layout_margin="5dp">
+        android:layout_margin="@dimen/box_margins">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
-                android:id="@+id/imageView"/>
+                android:id="@+id/imageView" />
         </LinearLayout>
 
         <TextView
@@ -31,7 +31,7 @@
             android:gravity="end"
             android:text="@string/app_name"
             android:id="@+id/textView3"
-            android:textSize="30sp" />
+            android:textSize="@dimen/large_text_size" />
 
     </LinearLayout>
 
@@ -40,13 +40,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_box"
-        android:layout_margin="5dp">
+        android:layout_margin="@dimen/box_margins">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings_settings"
-            android:textSize="30sp"
+            android:textSize="@dimen/medium_text_size"
             android:id="@+id/settingsTextView"
             android:layout_gravity="center_horizontal" />
 
@@ -58,6 +58,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text_size"
                 android:text="Number of Colors"
                 android:id="@+id/textView2" />
 
@@ -75,6 +76,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text_size"
                 android:text="Board Size"
                 android:id="@+id/textView" />
 
@@ -87,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/settings_color_blind"
+                android:textSize="@dimen/small_text_size"
                 android:id="@+id/colorBlindCheckBox" />
 
         </LinearLayout>
@@ -101,6 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Apply"
+                android:textSize="@dimen/small_text_size"
                 android:id="@+id/applyButton" />
         </LinearLayout>
 

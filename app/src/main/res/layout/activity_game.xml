@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:padding="5dp"
+    android:padding="@dimen/outer_layout_padding"
     android:gravity="center">
 
     <LinearLayout
@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_box"
-        android:layout_margin="5dp">
+        android:layout_margin="@dimen/box_margins">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
-                android:id="@+id/imageView"/>
+                android:id="@+id/imageView" />
         </LinearLayout>
 
         <TextView
@@ -32,7 +32,7 @@
             android:gravity="end"
             android:text="@string/app_name"
             android:id="@+id/textView3"
-            android:textSize="30sp" />
+            android:textSize="@dimen/large_text_size" />
 
     </LinearLayout>
 
@@ -41,68 +41,67 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_box"
-        android:layout_margin="5dp">
+        android:layout_margin="@dimen/box_margins">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical">
-
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/stepsTextView"
-                android:textSize="30sp" />
+                android:textSize="@dimen/large_text_size" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end">
-
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/info"
+                    android:src="@drawable/info"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
                     android:background="@null"
                     android:id="@+id/infoButton" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/gear"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gear"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
                     android:background="@null"
                     android:id="@+id/settingsButton" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/star"
+                    android:src="@drawable/star"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
                     android:background="@null"
                     android:id="@+id/newGameButton" />
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <com.gunshippenguin.openflood.FloodView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <com.gunshippenguin.openflood.FloodView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/floodView"
-                android:layout_margin="5dp"/>
-        </LinearLayout>
+            android:layout_height="0dp"
+            android:id="@+id/floodView"
+            android:layout_weight="8"
+            android:layout_margin="@dimen/box_margins"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:id="@+id/buttonLayout"
-            android:layout_marginTop="5dp">
+            android:layout_weight="1.5">
 
         </LinearLayout>
     </LinearLayout>

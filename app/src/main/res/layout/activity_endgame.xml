@@ -3,24 +3,23 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background_box"
-    android:padding="15dp">
+    android:padding="@dimen/endgame_padding">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/endGameTitle"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="@dimen/large_text_size"
         android:layout_gravity="left" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/endGameText"
-        android:textSize="15sp"
+        android:textSize="@dimen/small_text_size"
         android:layout_gravity="left"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginTop="@dimen/box_margins"
+        android:layout_marginBottom="@dimen/box_margins" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -32,12 +31,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/endgame_replay"
+            android:textSize="@dimen/small_text_size"
             android:id="@+id/replayButton" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/endgame_button"
+            android:textSize="@dimen/small_text_size"
             android:id="@+id/newGameButton" />
     </LinearLayout>
 

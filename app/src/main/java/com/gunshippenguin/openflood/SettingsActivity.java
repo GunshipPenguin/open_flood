@@ -29,7 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
         // Set up the board size spinner
         boardSizeSpinner = (Spinner) findViewById(R.id.boardSizeSpinner);
         ArrayAdapter<BoardSize> boardSizesAdapter = new ArrayAdapter<BoardSize>(this,
-                R.layout.support_simple_spinner_dropdown_item);
+                R.layout.spinner_layout);
         boardSizeChoices = getResources().getIntArray(R.array.boardSizeChoices);
         int currBoardSize = sp.getInt("board_size",
                 getResources().getInteger(R.integer.default_board_size));
@@ -44,7 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
         // Set up the num colors spinner
         numColorsSpinner = (Spinner) findViewById(R.id.numColorsSpinner);
         ArrayAdapter<ColorNum> numColorsAdapter = new ArrayAdapter<ColorNum>(this,
-                R.layout.support_simple_spinner_dropdown_item);
+                R.layout.spinner_layout);
         numColorsChoices = getResources().getIntArray(R.array.numColorsChoices);
         int currNumColors = sp.getInt("num_colors",
                 getResources().getInteger(R.integer.default_num_colors));

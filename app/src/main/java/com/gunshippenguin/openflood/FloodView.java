@@ -16,6 +16,8 @@ public class FloodView extends View {
     private Game gameToDraw;
     private int boardSize;
     private int cellSize;
+    private int xOffset;
+    private int yOffset;
     private Paint textPaint;
     private Paint paints[];
 
@@ -28,22 +30,32 @@ public class FloodView extends View {
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        setDrawingInfo();
+        return;
+    }
 
-        int dimension = widthSize;
-        if (boardSize != 0) {
-            dimension -= (widthSize % boardSize);
+    private void setDrawingInfo(){
+        int dimension;
+        if (getWidth() > getHeight()) {
+            dimension = getHeight();
+        } else {
+            dimension = getWidth();
         }
 
-        cellSize = dimension / boardSize;
-        textPaint.setTextSize(cellSize);
-        setMeasuredDimension(dimension, dimension);
+        dimension -= (dimension % boardSize);
+        if (boardSize != 0) {
+            cellSize = dimension / boardSize;
+            xOffset = (getWidth() - dimension) / 2 ;
+            yOffset = (getHeight() - dimension) / 2 ;
+            textPaint.setTextSize(cellSize);
+        }
+        return;
     }
 
     public void setBoardSize(int boardSize) {
         this.boardSize = boardSize;
-        requestLayout();
+        setDrawingInfo();
         return;
     }
 
@@ -67,8 +79,8 @@ public class FloodView extends View {
         // Draw colors
         for (int y = 0; y < gameToDraw.getBoardDimensions(); y++) {
             for (int x = 0; x < gameToDraw.getBoardDimensions(); x++) {
-                c.drawRect(x * cellSize, y * cellSize,
-                        (x + 1) * cellSize, (y + 1) * cellSize, paints[gameToDraw.getColor(x, y)]);
+                c.drawRect(x * cellSize + xOffset, y * cellSize + yOffset,
+                        (x + 1) * cellSize + xOffset, (y + 1) * cellSize + yOffset, paints[gameToDraw.getColor(x, y)]);
             }
         }
 
@@ -78,11 +90,11 @@ public class FloodView extends View {
             Rect currRect = new Rect();
             for (int y = 0; y < gameToDraw.getBoardDimensions(); y++) {
                 for (int x = 0; x < gameToDraw.getBoardDimensions(); x++) {
-                    currRect.set(x * cellSize, y * cellSize,
-                            (x + 1) * cellSize, (y + 1) * cellSize);
+                    currRect.set(x * cellSize + xOffset, y * cellSize + yOffset,
+                            (x + 1) * cellSize + xOffset, (y + 1) * cellSize + yOffset);
                     numToDraw = Integer.toString(gameToDraw.getColor(x, y) + 1);
                     c.drawText(numToDraw, currRect.centerX(),
-                            (int) (y * cellSize + currRect.height() / 2 - ((textPaint.descent() + textPaint.ascent()) / 2)),
+                            (int) (currRect.centerY() - ((textPaint.descent() + textPaint.ascent()) / 2)),
                             textPaint);
                 }
             }

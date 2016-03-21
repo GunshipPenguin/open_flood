@@ -130,7 +130,7 @@ public class GameActivity extends AppCompatActivity {
         // Add color buttons
         LinearLayout buttonLayout = (LinearLayout) findViewById(R.id.buttonLayout);
         buttonLayout.removeAllViews();
-        Resources resources = getResources();
+        int buttonPadding = (int) getResources().getDimension(R.dimen.color_button_padding);
         for (int i = 0; i < getNumColors(); i++) {
             final int localI = i;
             ColorButton newButton = new ColorButton(this);
@@ -145,7 +145,7 @@ public class GameActivity extends AppCompatActivity {
             });
             newButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.MATCH_PARENT, 1.0f));
-            newButton.setPadding(5, 5, 5, 5);
+            newButton.setPadding(buttonPadding, buttonPadding, buttonPadding, buttonPadding);
 
             newButton.setColorBlindText(Integer.toString(i + 1));
             newButton.setColor(paints[i].getColor());
