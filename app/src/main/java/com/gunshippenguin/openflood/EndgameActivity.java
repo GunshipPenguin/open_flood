@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 /**
  * Dialog Activity that is displayed to the user upon a win or loss.
@@ -39,9 +41,11 @@ public class EndgameActivity extends AppCompatActivity {
         // Set up the dialog's text
         TextView endgameTextView = (TextView) findViewById(R.id.endGameText);
         if (gameWon) {
+            int score = getIntent().getExtras().getInt("steps");
             String stepsString = String.format(getString(R.string.endgame_win_text),
-                    getIntent().getExtras().getInt("steps"));
-            endgameTextView.setText(stepsString);
+                                               score);
+            String highscoreString = getHighscoreString(score);
+            endgameTextView.setText(stepsString + highscoreString);
         } else {
             endgameTextView.setVisibility(View.GONE);
         }
@@ -71,5 +75,40 @@ public class EndgameActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private String getHighscoreString(int score) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        int highscore = getHighscore(sp);
+
+        if (highscore < 0 || highscore > score) {
+            // Game mode has not yet been beaten or this score is
+            // better than the previous highscore
+            saveHighscore(sp, score);
+            return "\n" + getString(R.string.endgame_new_highscore_text);
+        } else {
+            // Current highscore has not been beaten
+            return "\n" + String.format(getString(R.string.endgame_win_highscore_text),
+                                        highscore);
+        }
+    }
+
+    private int getHighscore(SharedPreferences sp) {
+        return sp.getInt(getKey(sp), -1);
+    }
+
+    private void saveHighscore(SharedPreferences sp, int score) {
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(getKey(sp), score);
+        editor.commit();
+    }
+
+    private String getKey(SharedPreferences sp) {
+        int currBoardSize = sp.getInt
+            ("board_size", getResources().getInteger(R.integer.default_board_size));
+        int currNumColors = sp.getInt
+            ("num_colors", getResources().getInteger(R.integer.default_num_colors));
+
+        return String.format("highscore_%1$d_%1$d", currBoardSize, currNumColors);
     }
 }
