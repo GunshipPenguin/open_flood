@@ -4,8 +4,8 @@
     <!-- End game activity -->
     <string name="endgame_win_title">Excellent</string>
     <string name="endgame_win_text" formatted="false">You flooded the board in %1$d moves</string>
-    <string name="endgame_win_highscore_text" formatted="false">Your personal best is %1$d moves</string>
-    <string name="endgame_new_highscore_text">You\'ve reached a new highscore!</string>
+    <string name="endgame_old_highscore_text" formatted="false">Your personal best is %1$d moves</string>
+    <string name="endgame_new_highscore_text" formatted="false">New personal best: %d moves</string>
     <string name="endgame_lose_title">Game Over</string>
     <string name="endgame_button">New Game</string>
     <string name="endgame_replay">Replay Board</string>

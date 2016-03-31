@@ -18,7 +18,13 @@
         android:id="@+id/endGameText"
         android:textSize="@dimen/small_text_size"
         android:layout_gravity="left"
-        android:layout_marginTop="@dimen/box_margins"
+        android:layout_marginTop="@dimen/box_margins" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/highScoreText"
+        android:textSize="@dimen/small_text_size"
+        android:layout_gravity="left"
         android:layout_marginBottom="@dimen/box_margins" />
 
     <LinearLayout

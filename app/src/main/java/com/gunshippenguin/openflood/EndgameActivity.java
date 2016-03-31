@@ -38,16 +38,40 @@ public class EndgameActivity extends AppCompatActivity {
             endgameTitleTextView.setText(getString(R.string.endgame_lose_title));
         }
 
-        // Set up the dialog's text
+        // Set up dialog's other text views
         TextView endgameTextView = (TextView) findViewById(R.id.endGameText);
+        TextView highScoreTextView = (TextView) findViewById(R.id.highScoreText);
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        HighScoreManager highScoreManager = new HighScoreManager(sp);
+
+        int boardSize = sp.getInt("board_size", -1);
+        int numColors = sp.getInt("num_colors", -1);
+
         if (gameWon) {
-            int score = getIntent().getExtras().getInt("steps");
+            int steps = getIntent().getExtras().getInt("steps");
             String stepsString = String.format(getString(R.string.endgame_win_text),
-                                               score);
-            String highscoreString = getHighscoreString(score);
-            endgameTextView.setText(stepsString + highscoreString);
+                    steps);
+            endgameTextView.setText(stepsString);
+
+            if (highScoreManager.isHighScore(boardSize, numColors, steps)) {
+                highScoreManager.setHighScore(boardSize, numColors, steps);
+                highScoreTextView.setText(String.format(getString(R.string.endgame_new_highscore_text),
+                        steps));
+            } else {
+                highScoreTextView.setText(String.format(getString(R.string.endgame_old_highscore_text),
+                        highScoreManager.getHighScore(boardSize, numColors)));
+            }
+
         } else {
             endgameTextView.setVisibility(View.GONE);
+            if (highScoreManager.highScoreExists(boardSize, numColors)) {
+                highScoreTextView.setText(String.format(getString(R.string.endgame_old_highscore_text),
+                        highScoreManager.getHighScore(boardSize, numColors)));
+            } else {
+                highScoreTextView.setVisibility(View.GONE);
+            }
+
         }
 
         // Show the replay butotn if the game has been lost
@@ -75,40 +99,5 @@ public class EndgameActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }
-
-    private String getHighscoreString(int score) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        int highscore = getHighscore(sp);
-
-        if (highscore < 0 || highscore > score) {
-            // Game mode has not yet been beaten or this score is
-            // better than the previous highscore
-            saveHighscore(sp, score);
-            return "\n" + getString(R.string.endgame_new_highscore_text);
-        } else {
-            // Current highscore has not been beaten
-            return "\n" + String.format(getString(R.string.endgame_win_highscore_text),
-                                        highscore);
-        }
-    }
-
-    private int getHighscore(SharedPreferences sp) {
-        return sp.getInt(getKey(sp), -1);
-    }
-
-    private void saveHighscore(SharedPreferences sp, int score) {
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putInt(getKey(sp), score);
-        editor.commit();
-    }
-
-    private String getKey(SharedPreferences sp) {
-        int currBoardSize = sp.getInt
-            ("board_size", getResources().getInteger(R.integer.default_board_size));
-        int currNumColors = sp.getInt
-            ("num_colors", getResources().getInteger(R.integer.default_num_colors));
-
-        return String.format("highscore_%1$d_%1$d", currBoardSize, currNumColors);
     }
 }
