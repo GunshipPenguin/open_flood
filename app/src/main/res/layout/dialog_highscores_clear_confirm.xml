@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_box"
+    android:padding="@dimen/endgame_padding">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/highScoresClearTitle"
+        android:text="@string/settings_clear_high_scores_dialog_title"
+        android:textSize="@dimen/large_text_size"
+        android:layout_gravity="left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/highScoresClearText"
+        android:text="@string/settings_clear_high_scores_dialog_text"
+        android:textSize="@dimen/small_text_size"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/box_margins"
+        android:layout_marginBottom="@dimen/box_margins"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_clear_high_scores_dialog_confirm"
+            android:textSize="@dimen/small_text_size"
+            android:id="@+id/confirmHighScoresClearButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_clear_high_scores_dialog_cancel"
+            android:id="@+id/cancelHighScoresClearButton"
+            android:textSize="@dimen/small_text_size" />
+    </LinearLayout>
+
+</LinearLayout>

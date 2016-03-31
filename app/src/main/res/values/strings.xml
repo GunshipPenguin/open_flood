@@ -17,6 +17,12 @@
     <string name="settings_apply_button">Apply</string>
     <string name="settings_color_blind">Color Blind Mode</string>
     <string name="settings_old_colors">Old Color Scheme</string>
+    <string name="settings_clear_high_scores_button">Clear Highscores</string>
+    <string name="settings_clear_high_scores_dialog_title">Clear Highscores?</string>
+    <string name="settings_clear_high_scores_dialog_text">All high score information will be cleared.</string>
+    <string name="settings_clear_high_scores_dialog_confirm">Yes</string>
+    <string name="settings_clear_high_scores_dialog_cancel">No</string>
+    <string name="settings_clear_high_scores_toast">Highscores cleared</string>
 
     <!--Info activity-->
     <string name="info_license">Released under the MIT License</string>

@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * Activity allowing the user to configure settings.
@@ -63,6 +66,49 @@ public class SettingsActivity extends AppCompatActivity {
         // Set up the old color scheme checkbox
         oldColorsCheckBox = (CheckBox) findViewById(R.id.oldColorsCheckBox);
         oldColorsCheckBox.setChecked(sp.getBoolean("use_old_colors", false));
+
+        // Set up the clear highscores button
+        Button clearHighScoresButton = (Button) findViewById(R.id.clearHighScoresButton);
+        clearHighScoresButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater = LayoutInflater.from(SettingsActivity.this);
+                View dialogView = inflater.inflate(R.layout.dialog_highscores_clear_confirm, null);
+                final AlertDialog dialog;
+                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+                builder.setView(dialogView);
+                dialog = builder.create();
+
+                Button confirmButton = (Button) dialogView.findViewById(R.id.confirmHighScoresClearButton);
+                confirmButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        HighScoreManager highScoreManager = new HighScoreManager(
+                                PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this));
+                        for (int boardSize : getResources().getIntArray(R.array.boardSizeChoices)) {
+                            for (int numColors : getResources().getIntArray(R.array.numColorsChoices)) {
+                                highScoreManager.removeHighScore(boardSize, numColors);
+                            }
+                        }
+                        dialog.dismiss();
+                        Toast toast = Toast.makeText(SettingsActivity.this,
+                                getString(R.string.settings_clear_high_scores_toast),
+                                Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                });
+
+                Button cancelButton = (Button) dialogView.findViewById(R.id.cancelHighScoresClearButton);
+                cancelButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        });
 
         // Set up the apply button
         Button applyButton = (Button) findViewById(R.id.applyButton);

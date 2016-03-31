@@ -99,6 +99,13 @@
                 android:textSize="@dimen/small_text_size"
                 android:id="@+id/oldColorsCheckBox" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_clear_high_scores_button"
+                android:textSize="@dimen/small_text_size"
+                android:id="@+id/clearHighScoresButton" />
+
         </LinearLayout>
 
         <LinearLayout

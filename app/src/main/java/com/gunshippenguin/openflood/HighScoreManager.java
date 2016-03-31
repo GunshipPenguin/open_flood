@@ -31,6 +31,13 @@ public class HighScoreManager {
         editor.apply();
     }
 
+    public void removeHighScore(int boardSize, int numColors) {
+        SharedPreferences.Editor editor = sp.edit();
+        editor.remove(getKey(boardSize, numColors));
+        editor.apply();
+        return;
+    }
+
     private String getKey(int boardSize, int numColors) {
         return String.format("highscore_%1$d_%1$d", boardSize, numColors);
     }
