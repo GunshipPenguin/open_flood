@@ -5,12 +5,31 @@
     android:background="@drawable/background_box"
     android:padding="@dimen/endgame_padding">
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/endGameTitle"
-        android:textSize="@dimen/large_text_size"
-        android:layout_gravity="left" />
+        android:layout_height="match_parent"
+        android:gravity="left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/endGameTitle"
+            android:textSize="@dimen/large_text_size" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_medal_size"
+                android:layout_height="@dimen/highscore_medal_size"
+                android:src="@drawable/highscore_medal"
+                android:id="@+id/highScoreMedalImageView"
+                android:gravity="end" />
+        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"

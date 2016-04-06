@@ -6,6 +6,8 @@
     <dimen name="medium_text_size">18sp</dimen>
     <dimen name="small_text_size">13sp</dimen>
 
+    <dimen name="highscore_medal_size">30dp</dimen>
+
     <dimen name="color_button_padding">2dp</dimen>
     <dimen name="outer_layout_padding">5dp</dimen>
     <dimen name="endgame_padding">15dp</dimen>

@@ -1,12 +1,14 @@
 package com.gunshippenguin.openflood;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -41,6 +43,7 @@ public class EndgameActivity extends AppCompatActivity {
         // Set up dialog's other text views
         TextView endgameTextView = (TextView) findViewById(R.id.endGameText);
         TextView highScoreTextView = (TextView) findViewById(R.id.highScoreText);
+        ImageView highScoreMedalImageView = (ImageView) findViewById(R.id.highScoreMedalImageView);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         HighScoreManager highScoreManager = new HighScoreManager(sp);
@@ -58,9 +61,11 @@ public class EndgameActivity extends AppCompatActivity {
                 highScoreManager.setHighScore(boardSize, numColors, steps);
                 highScoreTextView.setText(String.format(getString(R.string.endgame_new_highscore_text),
                         steps));
+                highScoreTextView.setTypeface(null, Typeface.BOLD);
             } else {
                 highScoreTextView.setText(String.format(getString(R.string.endgame_old_highscore_text),
                         highScoreManager.getHighScore(boardSize, numColors)));
+                highScoreMedalImageView.setVisibility(View.GONE);
             }
 
         } else {
@@ -68,8 +73,10 @@ public class EndgameActivity extends AppCompatActivity {
             if (highScoreManager.highScoreExists(boardSize, numColors)) {
                 highScoreTextView.setText(String.format(getString(R.string.endgame_old_highscore_text),
                         highScoreManager.getHighScore(boardSize, numColors)));
+                highScoreMedalImageView.setVisibility(View.GONE);
             } else {
                 highScoreTextView.setVisibility(View.GONE);
+                highScoreMedalImageView.setVisibility(View.GONE);
             }
 
         }
