@@ -92,7 +92,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ClearHighScoresDialog dialog = new ClearHighScoresDialog();
-                dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
+                dialog.show(getSupportFragmentManager(), "ClearHighScoresDialog");
             }
         });
 
