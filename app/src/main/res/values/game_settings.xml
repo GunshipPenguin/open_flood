@@ -6,22 +6,16 @@
 
     <!-- Board Size Choices -->
     <integer-array name="boardSizeChoices">
-        <item>10</item>
         <item>12</item>
-        <item>14</item>
         <item>18</item>
         <item>20</item>
-        <item>22</item>
         <item>24</item>
     </integer-array>
 
     <!-- Number of Colors Choices -->
     <integer-array name="numColorsChoices">
-        <item>3</item>
         <item>4</item>
-        <item>5</item>
         <item>6</item>
-        <item>7</item>
         <item>8</item>
     </integer-array>
 </resources>

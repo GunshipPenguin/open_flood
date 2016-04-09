@@ -36,6 +36,7 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
@@ -79,6 +80,10 @@ public class GameActivity extends AppCompatActivity {
 
         // Get the steps text view
         stepsTextView = (TextView) findViewById(R.id.stepsTextView);
+
+        spEditor.putInt("board_size", 18);
+        spEditor.putInt("num_colors", 6);
+        spEditor.apply();
 
         // Set up a new game
         newGame();

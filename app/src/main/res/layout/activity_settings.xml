@@ -59,13 +59,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_text_size"
-                android:text="Number of Colors"
-                android:id="@+id/textView2" />
+                android:text="Board Size"
+                android:id="@+id/textView" />
 
-            <Spinner
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/numColorsSpinner" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/boardSizeRadioGroup">
+
+            </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout
@@ -77,36 +81,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_text_size"
-                android:text="Board Size"
-                android:id="@+id/textView" />
+                android:text="Number of Colors"
+                android:id="@+id/textView2" />
 
-            <Spinner
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/boardSizeSpinner" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/numColorsRadioGroup">
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_color_blind"
-                android:textSize="@dimen/small_text_size"
-                android:id="@+id/colorBlindCheckBox" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_old_colors"
-                android:textSize="@dimen/small_text_size"
-                android:id="@+id/oldColorsCheckBox" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_clear_high_scores_button"
-                android:textSize="@dimen/small_text_size"
-                android:id="@+id/clearHighScoresButton" />
+            </RadioGroup>
 
         </LinearLayout>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_color_blind"
+            android:textSize="@dimen/small_text_size"
+            android:id="@+id/colorBlindCheckBox" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_old_colors"
+            android:textSize="@dimen/small_text_size"
+            android:id="@+id/oldColorsCheckBox" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_clear_high_scores_button"
+            android:textSize="@dimen/small_text_size"
+            android:id="@+id/clearHighScoresButton" />
 
         <LinearLayout
             android:orientation="horizontal"

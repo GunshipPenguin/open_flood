@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,6 +25,8 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox colorBlindCheckBox, oldColorsCheckBox;
     int[] boardSizeChoices, numColorsChoices;
 
+    private int selectedBoardSize, selectedNumColors;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,34 +34,48 @@ public class SettingsActivity extends AppCompatActivity {
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // Set up the board size spinner
-        boardSizeSpinner = (Spinner) findViewById(R.id.boardSizeSpinner);
-        ArrayAdapter<BoardSize> boardSizesAdapter = new ArrayAdapter<BoardSize>(this,
-                R.layout.spinner_layout);
+        // Set up the board size RadioGroup
+        RadioGroup boardSizeRadioGroup = (RadioGroup) findViewById(R.id.boardSizeRadioGroup);
         boardSizeChoices = getResources().getIntArray(R.array.boardSizeChoices);
-        int currBoardSize = sp.getInt("board_size",
+        selectedBoardSize = sp.getInt("board_size",
                 getResources().getInteger(R.integer.default_board_size));
-        boardSizeSpinner.setAdapter(boardSizesAdapter);
-        for (int bs : boardSizeChoices) {
-            boardSizesAdapter.add(new BoardSize(bs));
-            if (bs == currBoardSize) {
-                boardSizeSpinner.setSelection(boardSizesAdapter.getCount() - 1);
+        for (final int bs : boardSizeChoices) {
+            RadioButton currRadioButton = new RadioButton(this);
+            currRadioButton.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    getResources().getDimension(R.dimen.small_text_size));
+            currRadioButton.setText(String.format("%dx%d", bs, bs));
+            boardSizeRadioGroup.addView(currRadioButton);
+            if (bs == selectedBoardSize) {
+                boardSizeRadioGroup.check(currRadioButton.getId());
             }
+            currRadioButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SettingsActivity.this.setSelectedBoardSize(bs);
+                }
+            });
         }
 
-        // Set up the num colors spinner
-        numColorsSpinner = (Spinner) findViewById(R.id.numColorsSpinner);
-        ArrayAdapter<ColorNum> numColorsAdapter = new ArrayAdapter<ColorNum>(this,
-                R.layout.spinner_layout);
+        // Set up the num colors RadioGroup
+        RadioGroup numColorsRadioGroup = (RadioGroup) findViewById(R.id.numColorsRadioGroup);
         numColorsChoices = getResources().getIntArray(R.array.numColorsChoices);
-        int currNumColors = sp.getInt("num_colors",
+        selectedNumColors = sp.getInt("num_colors",
                 getResources().getInteger(R.integer.default_num_colors));
-        numColorsSpinner.setAdapter(numColorsAdapter);
-        for (int nc : numColorsChoices) {
-            numColorsAdapter.add(new ColorNum(nc));
-            if (nc == currNumColors) {
-                numColorsSpinner.setSelection(numColorsAdapter.getCount() - 1);
+        for (final int nc : numColorsChoices) {
+            RadioButton currRadioButton = new RadioButton(this);
+            currRadioButton.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    getResources().getDimension(R.dimen.small_text_size));
+            currRadioButton.setText(Integer.toString(nc));
+            numColorsRadioGroup.addView(currRadioButton);
+            if (nc == selectedNumColors) {
+                numColorsRadioGroup.check(currRadioButton.getId());
             }
+            currRadioButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SettingsActivity.this.setSelectedNumColors(nc);
+                }
+            });
         }
 
         // Set up the color blind checkbox
@@ -122,6 +141,14 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+    private void setSelectedBoardSize(int boardSize) {
+        this.selectedBoardSize = boardSize;
+    }
+
+    private void setSelectedNumColors(int numColors) {
+        this.selectedNumColors = numColors;
+    }
+
     private Intent saveSettings() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor spEditor = sp.edit();
@@ -130,7 +157,6 @@ public class SettingsActivity extends AppCompatActivity {
         dataIntent.putExtra("colorSettingsChanged", false);
 
         // Update boardSize
-        int selectedBoardSize = ((BoardSize) boardSizeSpinner.getSelectedItem()).getBoardSize();
         int defaultBoardSize = getResources().getInteger(R.integer.default_board_size);
         if (selectedBoardSize != sp.getInt("board_size", defaultBoardSize)) {
             dataIntent.putExtra("gameSettingsChanged", true);
@@ -138,7 +164,6 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         // Update number of colors
-        int selectedNumColors = ((ColorNum) numColorsSpinner.getSelectedItem()).getColorNum();
         int defaultNumColors = getResources().getInteger(R.integer.default_num_colors);
         if (selectedNumColors != sp.getInt("num_colors", defaultNumColors)) {
             dataIntent.putExtra("gameSettingsChanged", true);
@@ -162,37 +187,4 @@ public class SettingsActivity extends AppCompatActivity {
         spEditor.apply();
         return dataIntent;
     }
-
-    private class BoardSize {
-        private int boardSize;
-        public BoardSize(int boardSize) {
-            this.boardSize = boardSize;
-        }
-
-        public int getBoardSize() {
-            return boardSize;
-        }
-
-        @Override
-        public String toString() {
-            return boardSize + "x" + boardSize;
-        }
-    }
-
-    private class ColorNum {
-        private int colorNum;
-        public ColorNum(int colorNumber) {
-            this.colorNum = colorNumber;
-        }
-
-        public int getColorNum() {
-            return colorNum;
-        }
-
-        @Override
-        public String toString() {
-            return Integer.toString(colorNum);
-        }
-    }
-
 }
