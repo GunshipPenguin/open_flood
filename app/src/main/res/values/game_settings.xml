@@ -8,7 +8,6 @@
     <integer-array name="boardSizeChoices">
         <item>12</item>
         <item>18</item>
-        <item>20</item>
         <item>24</item>
     </integer-array>
 
