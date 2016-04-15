@@ -55,6 +55,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/endgame_get_seed"
+            android:id="@+id/getSeedButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/endgame_replay"
             android:textSize="@dimen/small_text_size"
             android:id="@+id/replayButton" />

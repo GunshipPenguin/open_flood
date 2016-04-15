@@ -1,5 +1,7 @@
 package com.gunshippenguin.openflood;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
@@ -13,12 +15,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Activity allowing the user to play the actual game.
  */
 public class GameActivity extends AppCompatActivity
-        implements EndGameDialogFragment.EndGameDialogFragmentListener {
+        implements EndGameDialogFragment.EndGameDialogFragmentListener,
+        SeedDialogFragment.SeedDialogFragmentListener {
 
     private final int UPDATE_SETTINGS = 1;
 
@@ -79,6 +83,14 @@ public class GameActivity extends AppCompatActivity
                 newGame();
             }
         });
+        newGameButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                SeedDialogFragment seedDialogFragment = new SeedDialogFragment();
+                seedDialogFragment.show(getSupportFragmentManager(), "SeedDialog");
+                return true;
+            }
+        });
 
         // Get the steps text view
         stepsTextView = (TextView) findViewById(R.id.stepsTextView);
@@ -132,6 +144,18 @@ public class GameActivity extends AppCompatActivity
 
     private void newGame() {
         game = new Game(getBoardSize(), getNumColors());
+        gameFinished = false;
+        lastColor = game.getColor(0, 0);
+
+        layoutColorButtons();
+
+        stepsTextView.setText(game.getSteps() + " / " + game.getMaxSteps());
+        floodView.setBoardSize(getBoardSize());
+        floodView.drawGame(game);
+    }
+
+    private void newGame(String seed) {
+        game = new Game(getBoardSize(), getNumColors(), seed);
         gameFinished = false;
         lastColor = game.getColor(0, 0);
 
@@ -213,6 +237,25 @@ public class GameActivity extends AppCompatActivity
 
     public void onReplayClick() {
         resetGame();
+    }
+
+    public void onLaunchSeedDialogClick() {
+        SeedDialogFragment seedDialogFragment = new SeedDialogFragment();
+        seedDialogFragment.show(getSupportFragmentManager(), "SeedDialog");
+        return;
+    }
+
+    public void onGetSeedClick() {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("seed", game.getSeed());
+        clipboard.setPrimaryClip(clip);
+        Toast toast = Toast.makeText(this, getString(R.string.game_seed_copied), Toast.LENGTH_SHORT);
+        toast.show();
+        return;
+    }
+
+    public void onNewGameFromSeedClick(String seed) {
+        newGame(seed);
     }
 
     private void showEndGameDialog() {

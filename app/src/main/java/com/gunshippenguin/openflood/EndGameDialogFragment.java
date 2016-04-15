@@ -22,6 +22,7 @@ public class EndGameDialogFragment extends DialogFragment {
     public interface EndGameDialogFragmentListener {
         public void onReplayClick();
         public void onNewGameClick();
+        public void onGetSeedClick();
     }
 
     EndGameDialogFragmentListener listener;
@@ -90,6 +91,15 @@ public class EndGameDialogFragment extends DialogFragment {
             }
 
         }
+
+        // Set up the get seed button
+        Button getSeedButton  = (Button) layout.findViewById(R.id.getSeedButton);
+        getSeedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onGetSeedClick();
+            }
+        });
 
         // Show the replay butotn if the game has been lost
         Button replayButton = (Button) layout.findViewById(R.id.replayButton);

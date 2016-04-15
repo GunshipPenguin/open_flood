@@ -67,36 +67,58 @@
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_box"
-        android:layout_margin="@dimen/box_margins">
+        android:id="@+id/scrollView" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/info_instructions_title"
-            android:textSize="@dimen/medium_text_size"
-            android:layout_gravity="center"
-            android:id="@+id/textView4" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:text="@string/info_instructions"
-            android:textSize="@dimen/small_text_size"
-            android:id="@+id/textView5" />
-
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/info_back"
-            android:textSize="@dimen/small_text_size"
-            android:id="@+id/backButton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_margin="@dimen/box_margins">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/info_instructions_title"
+                android:textSize="@dimen/medium_text_size"
+                android:layout_gravity="center"
+                android:id="@+id/textView4" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="@string/info_instructions"
+                android:textSize="@dimen/small_text_size"
+                android:id="@+id/textView5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_seeds_title"
+                android:textSize="@dimen/medium_text_size"
+                android:layout_gravity="center"
+                android:id="@+id/textView8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_seeds"
+                android:textSize="@dimen/small_text_size"
+                android:id="@+id/textView9" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_back"
+                android:textSize="@dimen/small_text_size"
+                android:id="@+id/backButton"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

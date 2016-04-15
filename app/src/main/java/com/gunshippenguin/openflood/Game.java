@@ -19,13 +19,38 @@ public class Game {
     private int steps = 0;
     private int maxSteps;
 
+    private String seed;
+    private static final String SEED_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+    private static final int SEED_LENGTH_LOWER = 5;
+    private static final int SEED_LENGTH_UPPER = 15;
+
     public Game(int boardSize, int numColors) {
         // Initialize board
         this.boardSize = boardSize;
         this.numColors = numColors;
+        this.seed = generateRandomSeed();
         initBoard();
 
         maxSteps = (int) 30 * (boardSize * numColors) / (17 * 6);
+    }
+
+    public Game(int boardSize, int numColors, String seed) {
+        // Initialize board
+        this.boardSize = boardSize;
+        this.numColors = numColors;
+        this.seed = seed;
+        initBoard();
+
+        maxSteps = (int) 30 * (boardSize * numColors) / (17 * 6);
+    }
+
+    private String generateRandomSeed() {
+        Random rand = new Random(System.currentTimeMillis());
+        String currSeed = "";
+        for(int i=0;i<rand.nextInt((SEED_LENGTH_UPPER-SEED_LENGTH_LOWER)+1)+SEED_LENGTH_LOWER;i++) {
+            currSeed += SEED_CHARS.charAt(rand.nextInt(SEED_CHARS.length()));
+        }
+        return currSeed;
     }
 
     public int getColor(int x, int y) {
@@ -42,6 +67,10 @@ public class Game {
         return boardSize;
     }
 
+    public String getSeed() {
+        return seed;
+    }
+
     public int getSteps() {
         return steps;
     }
@@ -52,7 +81,7 @@ public class Game {
 
     private void initBoard() {
         board = new int[boardSize][boardSize];
-        Random r = new Random(System.currentTimeMillis());
+        Random r = new Random(seed.hashCode());
         for (int y = 0; y < boardSize; y++) {
             for (int x = 0; x < boardSize; x++) {
                 board[y][x] = r.nextInt(numColors);

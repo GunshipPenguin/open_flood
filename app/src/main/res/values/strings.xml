@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Open Flood</string>
 
-    <!-- End game activity -->
+    <!-- Game Activity -->
+    <string name="game_seed_copied">Board seed copied to clipboard</string>
+
+    <!-- End Game Dialog -->
     <string name="endgame_win_title">Excellent</string>
     <string name="endgame_win_text" formatted="false">You flooded the board in %1$d moves</string>
     <string name="endgame_old_highscore_text" formatted="false">Your personal best is %1$d moves</string>
@@ -9,6 +12,13 @@
     <string name="endgame_lose_title">Game Over</string>
     <string name="endgame_button">New Game</string>
     <string name="endgame_replay">Replay Board</string>
+    <string name="endgame_get_seed">Get Seed</string>
+
+    <!-- Seed Dialog -->
+    <string name="seed_dialog_title">New game from seed</string>
+    <string name="seed_dialog_edittext_prefix">Seed:</string>
+    <string name="seed_dialog_start">Start</string>
+    <string name="seed_dialog_cancel">Cancel</string>
 
     <!--Settings Activity-->
     <string name="settings_settings">Settings</string>
@@ -33,6 +43,12 @@
         bottom of the board to flood all adjacent filled cells with that color. The aim of the game
         is to fill the entire board with a single color in less than the maximum number of
         allowed moves.
+    </string>
+    <string name="info_seeds_title">Seeds</string>
+    <string name="info_seeds">
+        Seeds allow you to save interesting boards to play later or share with your friends.
+        Every possible board has a seed associated with it. To generate a board from a seed, hold
+        down the new game button (star).
     </string>
     <string name="info_back">Back</string>
 </resources>
