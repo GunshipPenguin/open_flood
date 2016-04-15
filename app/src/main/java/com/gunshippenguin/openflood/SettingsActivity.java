@@ -4,18 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 /**
  * Activity allowing the user to configure settings.
@@ -91,8 +87,8 @@ public class SettingsActivity extends AppCompatActivity {
         clearHighScoresButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ClearHighScoresDialog dialog = new ClearHighScoresDialog();
-                dialog.show(getSupportFragmentManager(), "ClearHighScoresDialog");
+                ClearHighScoresDialogFragment dialog = new ClearHighScoresDialogFragment();
+                dialog.show(getSupportFragmentManager(), "ClearHighScoresDialogFragment");
             }
         });
 
