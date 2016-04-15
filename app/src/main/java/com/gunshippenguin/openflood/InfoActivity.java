@@ -8,6 +8,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Activity displaying information about the application.
@@ -41,6 +42,17 @@ public class InfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        findViewById(R.id.appNameTextView).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast toast = Toast.makeText(InfoActivity.this,
+                        "Eric Hamber Secondary Class of 2016",
+                        Toast.LENGTH_LONG);
+                toast.show();
+                return true;
             }
         });
 

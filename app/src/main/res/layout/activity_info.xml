@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:text="@string/app_name"
-            android:id="@+id/textView3"
+            android:id="@+id/appNameTextView"
             android:textSize="@dimen/large_text_size" />
 
     </LinearLayout>
