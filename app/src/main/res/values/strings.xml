@@ -10,8 +10,8 @@
     <string name="endgame_old_highscore_text" formatted="false">Your personal best is %1$d moves</string>
     <string name="endgame_new_highscore_text" formatted="false">New personal best: %d moves</string>
     <string name="endgame_lose_title">Game Over</string>
-    <string name="endgame_button">New Game</string>
-    <string name="endgame_replay">Replay Board</string>
+    <string name="endgame_new_game_button">New</string>
+    <string name="endgame_replay">Replay</string>
     <string name="endgame_get_seed">Get Seed</string>
 
     <!-- Seed Dialog -->

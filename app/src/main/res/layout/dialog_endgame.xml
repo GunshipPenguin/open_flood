@@ -68,7 +68,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/endgame_button"
+            android:text="@string/endgame_new_game_button"
             android:textSize="@dimen/small_text_size"
             android:id="@+id/newGameButton" />
     </LinearLayout>
