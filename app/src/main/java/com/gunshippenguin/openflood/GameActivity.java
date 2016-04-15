@@ -83,10 +83,6 @@ public class GameActivity extends AppCompatActivity
         // Get the steps text view
         stepsTextView = (TextView) findViewById(R.id.stepsTextView);
 
-        spEditor.putInt("board_size", 18);
-        spEditor.putInt("num_colors", 6);
-        spEditor.apply();
-
         // Set up a new game
         newGame();
     }
