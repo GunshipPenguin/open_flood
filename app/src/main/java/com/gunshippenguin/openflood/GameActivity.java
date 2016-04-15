@@ -262,7 +262,7 @@ public class GameActivity extends AppCompatActivity
         DialogFragment endGameDialog = new EndGameDialogFragment();
         Bundle args = new Bundle();
         args.putInt("steps", game.getSteps());
-        args.putInt("max_steps", game.getMaxSteps());
+        args.putBoolean("game_won", game.checkWin());
         endGameDialog.setArguments(args);
         endGameDialog.show(getSupportFragmentManager(), "EndGameDialog");
         return;

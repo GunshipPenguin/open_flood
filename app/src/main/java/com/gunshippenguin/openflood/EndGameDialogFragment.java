@@ -33,8 +33,7 @@ public class EndGameDialogFragment extends DialogFragment {
 
         // Get steps and maxSteps from the arguments
         int steps = getArguments().getInt("steps");
-        int maxSteps = getArguments().getInt("max_steps");
-        boolean gameWon = steps <= maxSteps;
+        boolean gameWon = getArguments().getBoolean("game_won");
 
         // Inflate layout
         LayoutInflater inflater = getActivity().getLayoutInflater();
