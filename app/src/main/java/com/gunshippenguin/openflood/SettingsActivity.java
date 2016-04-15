@@ -11,13 +11,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 
 /**
  * Activity allowing the user to configure settings.
  */
 public class SettingsActivity extends AppCompatActivity {
-    Spinner boardSizeSpinner, numColorsSpinner;
     CheckBox colorBlindCheckBox, oldColorsCheckBox;
     int[] boardSizeChoices, numColorsChoices;
 
