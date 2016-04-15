@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,10 @@ import android.widget.TextView;
 /**
  * Activity allowing the user to play the actual game.
  */
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity
+        implements EndGameDialogFragment.EndGameDialogFragmentListener {
+
     private final int UPDATE_SETTINGS = 1;
-    private final int NEW_GAME = 2;
 
     private Game game;
     private SharedPreferences sp;
@@ -187,14 +189,6 @@ public class GameActivity extends AppCompatActivity {
                     layoutColorButtons();
                 }
             }
-        } else if (requestCode == NEW_GAME) {
-            if (resultCode == RESULT_OK) {
-                if (data.getBooleanExtra("replayGame", false)) {
-                    resetGame();
-                } else {
-                    newGame();
-                }
-            }
         }
     }
 
@@ -210,17 +204,27 @@ public class GameActivity extends AppCompatActivity {
 
         if (game.checkWin() || game.getSteps() == game.getMaxSteps()) {
             gameFinished = true;
-            showEndGameActivity();
+            showEndGameDialog();
         }
 
         return;
     }
 
-    private void showEndGameActivity() {
-        Intent launchEndgameIntent = new Intent(GameActivity.this, EndgameActivity.class);
-        launchEndgameIntent.putExtra("gameWon", game.checkWin());
-        launchEndgameIntent.putExtra("steps", game.getSteps());
-        startActivityForResult(launchEndgameIntent, NEW_GAME);
+    public void onNewGameClick() {
+        newGame();
+        return;
+    }
+
+    public void onReplayClick() {
+        resetGame();
+    }
+
+    private void showEndGameDialog() {
+        DialogFragment endGameDialog = new EndGameDialogFragment();
+        Bundle args = new Bundle();
+        args.putInt("steps", game.getSteps());
+        endGameDialog.setArguments(args);
+        endGameDialog.show(getSupportFragmentManager(), "EndGameDialog");
         return;
     }
 }
