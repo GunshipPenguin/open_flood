@@ -133,15 +133,6 @@ public class GameActivity extends AppCompatActivity
         return;
     }
 
-    private void resetGame(){
-        game.resetGame();
-        gameFinished = false;
-        lastColor = game.getColor(0, 0);
-        stepsTextView.setText(game.getSteps() + " / " + game.getMaxSteps());
-        floodView.drawGame(game);
-        return;
-    }
-
     private void newGame() {
         game = new Game(getBoardSize(), getNumColors());
         gameFinished = false;
@@ -236,7 +227,7 @@ public class GameActivity extends AppCompatActivity
     }
 
     public void onReplayClick() {
-        resetGame();
+        newGame(game.getSeed());
     }
 
     public void onLaunchSeedDialogClick() {
