@@ -71,13 +71,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_box"
-        android:id="@+id/scrollView" >
+        android:id="@+id/scrollView"
+        android:layout_margin="@dimen/box_margins">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/box_margins">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
