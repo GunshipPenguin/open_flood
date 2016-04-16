@@ -56,12 +56,6 @@ public class Game {
         return board[y][x];
     }
 
-    public void setColor(int x, int y, int color) {
-        assert (color < numColors);
-        board[y][x] = color;
-        return;
-    }
-
     public int getBoardDimensions() {
         return boardSize;
     }
