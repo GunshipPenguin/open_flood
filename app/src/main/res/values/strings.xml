@@ -47,8 +47,7 @@
     <string name="info_seeds_title">Seeds</string>
     <string name="info_seeds">
         Seeds allow you to save interesting boards to play later or share with your friends.
-        Every possible board has a seed associated with it. To generate a board from a seed, hold
-        down the new game button (star).
+        To generate a board from a seed, hold down the new game button.
     </string>
     <string name="info_back">Back</string>
 </resources>
