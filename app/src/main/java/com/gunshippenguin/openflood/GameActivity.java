@@ -254,6 +254,7 @@ public class GameActivity extends AppCompatActivity
         Bundle args = new Bundle();
         args.putInt("steps", game.getSteps());
         args.putBoolean("game_won", game.checkWin());
+        args.putString("seed", game.getSeed());
         endGameDialog.setArguments(args);
         endGameDialog.show(getSupportFragmentManager(), "EndGameDialog");
         return;

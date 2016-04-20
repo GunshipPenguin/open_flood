@@ -12,7 +12,7 @@
     <string name="endgame_lose_title">Game Over</string>
     <string name="endgame_new_game_button">New</string>
     <string name="endgame_replay">Replay</string>
-    <string name="endgame_get_seed">Get Seed</string>
+    <string name="endgame_seed" fomatted="false">Seed: %1$s (tap to copy)</string>
 
     <!-- Seed Dialog -->
     <string name="seed_dialog_title">New game from seed</string>

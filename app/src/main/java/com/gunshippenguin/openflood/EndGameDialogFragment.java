@@ -2,6 +2,8 @@ package com.gunshippenguin.openflood;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -92,8 +94,12 @@ public class EndGameDialogFragment extends DialogFragment {
         }
 
         // Set up the get seed button
-        Button getSeedButton  = (Button) layout.findViewById(R.id.getSeedButton);
-        getSeedButton.setOnClickListener(new View.OnClickListener() {
+        TextView seedTextView  = (TextView) layout.findViewById(R.id.seedTextView);
+        seedTextView.setText(String.format(getString(R.string.endgame_seed),
+                getArguments().getString("seed")));
+        seedTextView.setTextColor(Color.BLUE);
+        seedTextView.setPaintFlags(seedTextView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        seedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.onGetSeedClick();
