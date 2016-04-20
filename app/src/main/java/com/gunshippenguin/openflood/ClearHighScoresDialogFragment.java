@@ -14,7 +14,7 @@ public class ClearHighScoresDialogFragment extends DialogFragment {
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View dialogView = inflater.inflate(R.layout.dialog_highscores_clear_confirm, null);
+        View dialogView = inflater.inflate(R.layout.dialog_highscores_clear, null);
         final AlertDialog dialog;
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(dialogView);
