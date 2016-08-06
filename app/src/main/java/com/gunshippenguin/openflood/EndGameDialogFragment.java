@@ -71,8 +71,7 @@ public class EndGameDialogFragment extends DialogFragment {
 
             if (highScoreManager.isHighScore(boardSize, numColors, steps)) {
                 highScoreManager.setHighScore(boardSize, numColors, steps);
-                highScoreTextView.setText(String.format(getString(R.string.endgame_new_highscore_text),
-                        steps));
+                highScoreTextView.setText(getString(R.string.endgame_new_highscore_text));
                 highScoreTextView.setTypeface(null, Typeface.BOLD);
             } else {
                 highScoreTextView.setText(String.format(getString(R.string.endgame_old_highscore_text),
