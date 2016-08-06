@@ -18,6 +18,8 @@ allowed moves.
 
 You can customize the amount of colors and the board size by tapping the gear icon.
 
+You can generate a board from a seed by holding down the new game (star) icon.
+
 ## License
 
 All code licensed under the MIT License (See LICENSE file)
