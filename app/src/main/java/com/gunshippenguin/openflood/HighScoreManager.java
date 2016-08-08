@@ -39,6 +39,6 @@ public class HighScoreManager {
     }
 
     private String getKey(int boardSize, int numColors) {
-        return String.format("highscore_%1$d_%1$d", boardSize, numColors);
+        return String.format("highscore_%1$d_%2$d", boardSize, numColors);
     }
 }
