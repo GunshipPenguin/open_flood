@@ -15,7 +15,7 @@
     <string name="endgame_seed" fomatted="false">Seed:%s (tapez pour copier)</string>
 
     <!-- Seed Dialog -->
-    <string name="seed_dialog_title">Nouveau jeu à partir d'un seed </string>
+    <string name="seed_dialog_title">Nouveau jeu à partir d\'un seed </string>
     <string name="seed_dialog_edittext_prefix">Seed:</string>
     <string name="seed_dialog_start">Commencez</string>
     <string name="seed_dialog_cancel">Annulez</string>
