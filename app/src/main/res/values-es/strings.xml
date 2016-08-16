@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Open Flood</string>
+
+    <!-- Game Activity -->
+    <string name="game_seed_copied">La semilla del tablero se copió al portapapeles</string>
+
+    <!-- End Game Dialog -->
+    <string name="endgame_win_title">Excelente</string>
+    <string name="endgame_win_text" formatted="false">Llenaste el tablero en %d movimientos</string>
+    <string name="endgame_old_highscore_text" formatted="false">Marca personal para este tipo de tablero: %d movimientos</string>
+    <string name="endgame_new_highscore_text">¡Nueva marca personal para este tipo de tablero!</string>
+    <string name="endgame_lose_title">Game Over</string>
+    <string name="endgame_new_game_button">Nuevo Juego</string>
+    <string name="endgame_replay">Volver a Jugar</string>
+    <string name="endgame_seed" fomatted="false">Semilla: %s (toca para copiar)</string>
+
+    <!-- Seed Dialog -->
+    <string name="seed_dialog_title">Nuevo juego a partir de semilla</string>
+    <string name="seed_dialog_edittext_prefix">Semilla:</string>
+    <string name="seed_dialog_start">Comenzar</string>
+    <string name="seed_dialog_cancel">Cancelar</string>
+
+    <!-- Settings Activity -->
+    <string name="settings_settings">Ajustes</string>
+    <string name="settings_num_colors">Número de Colores</string>
+    <string name="settings_board_size">Tamaño del Tablero</string>
+    <string name="settings_apply_button">Aplicar</string>
+    <string name="settings_color_blind">Modo Daltónico</string>
+    <string name="settings_old_colors">Esquema de Color Antiguo</string>
+    <string name="settings_clear_high_scores_button">Borrar Puntuaciones Altas</string>
+    <string name="settings_clear_high_scores_dialog_title">¿Borrar las Puntuaciones Altas?</string>
+    <string name="settings_clear_high_scores_dialog_text">Todas la información de puntuaciones se eliminará.</string>
+    <string name="settings_clear_high_scores_dialog_confirm">Si</string>
+    <string name="settings_clear_high_scores_dialog_cancel">No</string>
+    <string name="settings_clear_high_scores_toast">Puntuaciones altas eliminadas</string>
+
+    <!-- Info activity -->
+    <string name="info_license">Lanzado bajo la MIT License</string>
+    <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/GunshipPenguin/open_flood</a></string>
+    <string name="info_instructions_title">Jugabilidad</string>
+    <string name="info_instructions">
+        Comienza en la esquina superior izquierda del tablero. Toca los botones de colores que están
+        a lo largo de la parte inferior del tablero para completar las celdas adyacentes con ese color.
+        El propósito del juego es llenar el tablero completo con un solo color utilizando la menor cantidad
+        de movimientos permitidos posible.
+    </string>
+    <string name="info_seeds_title">Semillas</string>
+    <string name="info_seeds">
+        Las semillas te permiten guardar tableros para jugar con ellos más tarde o compartirlos con tus amigos.
+        Para generar un tablero a partir de una semilla, mantén presionado el botón de nuevo juego.
+    </string>
+    <string name="info_back">Regresar</string>
+</resources>
