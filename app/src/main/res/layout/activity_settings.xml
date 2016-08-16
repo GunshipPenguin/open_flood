@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_text_size"
-                android:text="Board Size"
+                android:text="@string/settings_board_size"
                 android:id="@+id/textView" />
 
             <RadioGroup
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_text_size"
-                android:text="Number of Colors"
+                android:text="@string/settings_num_colors"
                 android:id="@+id/textView2" />
 
             <RadioGroup
@@ -124,7 +124,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Apply"
+                android:text="@string/settings_apply_button"
                 android:textSize="@dimen/small_text_size"
                 android:id="@+id/applyButton" />
         </LinearLayout>
