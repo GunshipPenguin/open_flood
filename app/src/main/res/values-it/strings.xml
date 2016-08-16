@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Open Flood</string>
+
+    <!-- Game Activity -->
+    <string name="game_seed_copied">Seme campo di gioco copiato negli appunti</string>
+
+    <!-- End Game Dialog -->
+    <string name="endgame_win_title">Eccellente</string>
+    <string name="endgame_win_text" formatted="false">Hai allagato il campo di gioco in %d mosse</string>
+    <string name="endgame_old_highscore_text" formatted="false">Record personale per questo tipo di campo: %d mosse</string>
+    <string name="endgame_new_highscore_text">Nuovo record personale per questo tipo di campo!</string>
+    <string name="endgame_lose_title">Game Over</string>
+    <string name="endgame_new_game_button">Nuova Partita</string>
+    <string name="endgame_replay">Replay</string>
+    <string name="endgame_seed" fomatted="false">Seme: %s (tocca per copiare)</string>
+
+    <!-- Seed Dialog -->
+    <string name="seed_dialog_title">Nuova partita da seme</string>
+    <string name="seed_dialog_edittext_prefix">Seme:</string>
+    <string name="seed_dialog_start">Inizia</string>
+    <string name="seed_dialog_cancel">Annulla</string>
+
+    <!--Settings Activity-->
+    <string name="settings_settings">Impostazioni</string>
+    <string name="settings_num_colors">Numero di Colori</string>
+    <string name="settings_board_size">Dimensione Campo</string>
+    <string name="settings_apply_button">Apply</string>
+    <string name="settings_color_blind">Modalità Daltonismo</string>
+    <string name="settings_old_colors">Vecchio Schema Colori</string>
+    <string name="settings_clear_high_scores_button">Azzera Punteggi Migliori</string>
+    <string name="settings_clear_high_scores_dialog_title">Azzerare i Punteggi Migliori?</string>
+    <string name="settings_clear_high_scores_dialog_text">Tutte le informazioni relative ai punteggi migliori saranno alterate.</string>
+    <string name="settings_clear_high_scores_dialog_confirm">Si</string>
+    <string name="settings_clear_high_scores_dialog_cancel">No</string>
+    <string name="settings_clear_high_scores_toast">Punteggi Migliori azzerati</string>
+
+    <!--Info activity-->
+    <string name="info_license">Rilasciato sotto Licenza MIT</string>
+    <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/GunshipPenguin/open_flood</a></string>
+    <string name="info_instructions_title">Come si Gioca</string>
+    <string name="info_instructions">
+        Inizi nell\'angolo in alto a destra del campo di gioco. Tocca i pulsanti colorati lungo la
+        parte inferiore del campo di gioco per inondare tutte le cellule adiacenti con quel colore. Lo scopo del gioco
+        è quello di riempire l\'intero campo di gioco con un singolo colore in un numero  inferiore di mosse rispetto al
+        massimo consentito.
+    </string>
+    <string name="info_seeds_title">Semi</string>
+    <string name="info_seeds">
+        I semi ti consentono di salvare campi di gioco interessanti da giocare più tardi o da condividere con i tuoi amici.
+        Per generare un campo di gioco da un seme, tieni premuto il pulsante nuova partita.
+    </string>
+    <string name="info_back">Indietro</string>
+</resources>
