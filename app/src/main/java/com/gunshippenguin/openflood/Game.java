@@ -99,16 +99,20 @@ public class Game {
             currPoint = queue.remove();
             if (board[currPoint.getY()][currPoint.getX()] == targetColor) {
                 board[currPoint.getY()][currPoint.getX()] = replacementColor;
-                if (currPoint.getX() != 0 && !processed.contains(currPoint)) {
+                if (currPoint.getX() != 0 &&
+                        !processed.contains(new BoardPoint(currPoint.getX() - 1, currPoint.getY()))) {
                     queue.add(new BoardPoint(currPoint.getX() - 1, currPoint.getY()));
                 }
-                if (currPoint.getX() != boardSize - 1 && !processed.contains(currPoint)) {
+                if (currPoint.getX() != boardSize - 1 &&
+                        !processed.contains(new BoardPoint(currPoint.getX() + 1, currPoint.getY()))) {
                     queue.add(new BoardPoint(currPoint.getX() + 1, currPoint.getY()));
                 }
-                if (currPoint.getY() != 0 && !processed.contains(currPoint)) {
+                if (currPoint.getY() != 0 &&
+                        !processed.contains(new BoardPoint(currPoint.getX(), currPoint.getY() - 1))) {
                     queue.add(new BoardPoint(currPoint.getX(), currPoint.getY() - 1));
                 }
-                if (currPoint.getY() != boardSize - 1 && !processed.contains(currPoint)) {
+                if (currPoint.getY() != boardSize - 1 &&
+                        !processed.contains(new BoardPoint(currPoint.getX(), currPoint.getY() + 1))) {
                     queue.add(new BoardPoint(currPoint.getX(), currPoint.getY() + 1));
                 }
             }
