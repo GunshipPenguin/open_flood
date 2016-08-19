@@ -12,7 +12,7 @@
     <string name="endgame_lose_title">Spiel ist aus</string>
     <string name="endgame_new_game_button">Neues Spiel</string>
     <string name="endgame_replay">Replay</string>
-    <string name="endgame_seed" fomatted="false">Samen:%s (tippen zu kopieren)</string>
+    <string name="endgame_seed" fomatted="false">Samen: %s (tippen zu kopieren)</string>
 
     <!-- Seed Dialog -->
     <string name="seed_dialog_title">Neues Spiel von Samen</string>

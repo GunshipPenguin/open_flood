@@ -12,7 +12,7 @@
     <string name="endgame_lose_title">Fin de Partie</string>
     <string name="endgame_new_game_button">Nouvelle Partie </string>
     <string name="endgame_replay">Rejouez</string>
-    <string name="endgame_seed" fomatted="false">Seed:%s (tapez pour copier)</string>
+    <string name="endgame_seed" fomatted="false">Seed: %s (tapez pour copier)</string>
 
     <!-- Seed Dialog -->
     <string name="seed_dialog_title">Nouveau jeu à partir d\'un seed </string>
