@@ -2,21 +2,21 @@
     <string name="app_name">Open Flood</string>
 
     <!-- Game Activity -->
-    <string name="game_seed_copied">Brettsamen in die Zwischenablage kopiert</string>
+    <string name="game_seed_copied">Saatwert in die Zwischenablage kopiert</string>
 
     <!-- End Game Dialog -->
-    <string name="endgame_win_title">Ausgezeichnet</string>
-    <string name="endgame_win_text" formatted="false">Sie überschwemmte das Brett in %d Bewegungen</string>
-    <string name="endgame_old_highscore_text" formatted="false">Personal am besten für diesen Bretttyp: %d Bewegungen</string>
-    <string name="endgame_new_highscore_text">Neue persönliche Bestleistung für diesen Bretttyp !</string>
-    <string name="endgame_lose_title">Spiel ist aus</string>
+    <string name="endgame_win_title">Gut gemacht!</string>
+    <string name="endgame_win_text" formatted="false">Sie haben das Spielbrett in %d Zügen gelöst.</string>
+    <string name="endgame_old_highscore_text" formatted="false">Persönliche Bestleistung für diesen Bretttyp: %d Züge</string>
+    <string name="endgame_new_highscore_text">Neue persönliche Bestleistung für diesen Bretttyp!</string>
+    <string name="endgame_lose_title">Spiel vorbei</string>
     <string name="endgame_new_game_button">Neues Spiel</string>
-    <string name="endgame_replay">Replay</string>
-    <string name="endgame_seed" fomatted="false">Samen: %s (tippen zu kopieren)</string>
+    <string name="endgame_replay">Erneut spielen</string>
+    <string name="endgame_seed" fomatted="false">Saatwert: %s (zum Kopieren antippen)</string>
 
     <!-- Seed Dialog -->
-    <string name="seed_dialog_title">Neues Spiel von Samen</string>
-    <string name="seed_dialog_edittext_prefix">Samen:</string>
+    <string name="seed_dialog_title">Neues Spiel nach Saatwert</string>
+    <string name="seed_dialog_edittext_prefix">Saatwert:</string>
     <string name="seed_dialog_start">Starten</string>
     <string name="seed_dialog_cancel">Abbrechen</string>
 
@@ -24,12 +24,12 @@
     <string name="settings_settings">Einstellungen</string>
     <string name="settings_num_colors">Anzahl der Farben</string>
     <string name="settings_board_size">Brettgröße</string>
-    <string name="settings_apply_button">Anwenden</string>
-    <string name="settings_color_blind">Farbenblind-Modus</string>
-    <string name="settings_old_colors">Alte Farbschema</string>
+    <string name="settings_apply_button">Übernehmen</string>
+    <string name="settings_color_blind">Monochrom (Farbenblind)</string>
+    <string name="settings_old_colors">Altes Farbschema</string>
     <string name="settings_clear_high_scores_button">Highscores löschen</string>
     <string name="settings_clear_high_scores_dialog_title">Highscores löschen?</string>
-    <string name="settings_clear_high_scores_dialog_text">Alle Highscore Informationen werden gelöscht.</string>
+    <string name="settings_clear_high_scores_dialog_text">Alle Highscore-Informationen werden gelöscht.</string>
     <string name="settings_clear_high_scores_dialog_confirm">Ja</string>
     <string name="settings_clear_high_scores_dialog_cancel">Nein</string>
     <string name="settings_clear_high_scores_toast">Highscores gelöscht</string>
@@ -37,16 +37,17 @@
     <!--Info activity-->
     <string name="info_license">Veröffentlicht unter der MIT-Lizenz</string>
     <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/GunshipPenguin/open_flood</a></string>
-    <string name="info_instructions_title">Gameplay</string>
+    <string name="info_instructions_title">Spielablauf</string>
     <string name="info_instructions">
-        Sie beginnen in der oberen linken Ecke des Spielbretts . Tippen Sie auf die farbigen Tasten entlang der
-        Unterseite der Platine alle benachbarten gefüllten Zellen mit dieser Farbe zu fluten. Das Ziel des Spiels
-        ist das gesamte Board mit einer einzigen Farbe in weniger als die maximale Anzahl von erlaubten Bewegungen zu füllen.
+        Tippen Sie auf die farbigen Tasten entlang der Unterseite des Spielfelds, um alle zusammenhängend gefärbten Zellen
+        beginnend oben links mit dieser Farbe zu fluten. Das Ziel des Spiels ist es, vor Erreichen der maximal zulässigen
+        Anzahl an Zügen das Spielfeld mit einer einzigen Farbe zu füllen.
     </string>
-    <string name="info_seeds_title">Samen</string>
+    <string name="info_seeds_title">Saatwert</string>
     <string name="info_seeds">
-        Samen erlauben Ihnen interessante Boards zu speichern, um später oder mit Ihren Freunden zu spielen teilen.
-        Um ein Brett aus einem Samen zu erzeugen, halten Sie die neue Spieltaste.
+        Saatwerte bestimmen die Ausgangssituation des Spielfeldes und erlauben Ihnen interessante Spielaufstellungen zu
+        speichern um sie später erneut zu spielen oder mit Freunden zu teilen.
+        Um ein Spiel aus einem vorhandenen Saatwert zu erzeugen, drücken und halten Sie die Taste für ein neues Spiel.
     </string>
     <string name="info_back">Zurück</string>
 </resources>
