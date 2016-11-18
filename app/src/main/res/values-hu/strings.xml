@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Open Flood</string>
+
+    <!-- Game Activity -->
+    <string name="game_seed_copied">A tábla seed-je a vágólapra helyezve</string>
+
+    <!-- End Game Dialog -->
+    <string name="endgame_win_title">Kitűnő</string>
+    <string name="endgame_win_text" formatted="false">Elárasztottad a táblát %d lépésben</string>
+    <string name="endgame_old_highscore_text" formatted="false">A személyes csúcsod ennél a táblatípusnál: %d lépés</string>
+    <string name="endgame_new_highscore_text">Új személyes csúcs ennél a táblatípusnál!</string>
+    <string name="endgame_lose_title">Vesztettél</string>
+    <string name="endgame_new_game_button">Új játék</string>
+    <string name="endgame_replay">Újrajátszás</string>
+    <string name="endgame_seed" fomatted="false">Seed: %s (érints a másoláshoz)</string>
+
+    <!-- Seed Dialog -->
+    <string name="seed_dialog_title">Új játék seed-ből</string>
+    <string name="seed_dialog_edittext_prefix">Seed:</string>
+    <string name="seed_dialog_start">Start</string>
+    <string name="seed_dialog_cancel">Mégse</string>
+
+    <!--Settings Activity-->
+    <string name="settings_settings">Beállítások</string>
+    <string name="settings_num_colors">Színek száma</string>
+    <string name="settings_board_size">Táblaméret</string>
+    <string name="settings_apply_button">Alkalmazás</string>
+    <string name="settings_color_blind">Színvak mód</string>
+    <string name="settings_old_colors">Régi színséma</string>
+    <string name="settings_clear_high_scores_button">Legjobb pontszámok törlése</string>
+    <string name="settings_clear_high_scores_dialog_title">Biztos törlöd?</string>
+    <string name="settings_clear_high_scores_dialog_text">A legjobb pontszámaid törölve lesznek.</string>
+    <string name="settings_clear_high_scores_dialog_confirm">Igen</string>
+    <string name="settings_clear_high_scores_dialog_cancel">Nem</string>
+    <string name="settings_clear_high_scores_toast">Legjobb pontszámok kitörölve</string>
+
+    <!--Info activity-->
+    <string name="info_license">MIT licensz alatt kibocsátva</string>
+    <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/GunshipPenguin/open_flood</a></string>
+    <string name="info_instructions_title">Játékszabályok</string>
+    <string name="info_instructions">
+        A tábla bal felső sarkában kezdesz. Érinstd meg a színes gombokat a tábla alatt
+        ahhoz, hogy a szomszédos azonos színű cellákat eláraszd. A játék célja az, hogy
+        a teljes táblát kitöltsd egyszínűre a maximum lépésszám alatt.
+    </string>
+    <string name="info_seeds_title">Seed-ek</string>
+    <string name="info_seeds">
+        A seed-ek segítségével eltárolhatsz érdekes táblákat későbbi játékra, vagy másokkal való megosztásra.
+        Tarts lenyomva az új játék gombot, hogy táblát generálj seed-ből
+    </string>
+    <string name="info_back">Vissza</string>
+</resources>
