@@ -46,7 +46,7 @@
     <string name="info_seeds_title">Seed-ek</string>
     <string name="info_seeds">
         A seed-ek segítségével eltárolhatsz érdekes táblákat későbbi játékra, vagy másokkal való megosztásra.
-        Tarts lenyomva az új játék gombot, hogy táblát generálj seed-ből
+        Tarts lenyomva az új játék gombot, hogy táblát generálj seed-ből.
     </string>
     <string name="info_back">Vissza</string>
 </resources>
