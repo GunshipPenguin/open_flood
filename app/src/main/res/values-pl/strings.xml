@@ -1,1 +1,45 @@
+<resources>
+    <string name="app_name">Open Flood</string>
 
+    <!-- Game Activity -->
+    <string name="game_seed_copied">Zalążek planszy skopiowano do schowka</string>
+
+    <!-- End Game Dialog -->
+    <string name="endgame_win_title">Wspaniale</string>
+    <string name="endgame_win_text" formatted="false">Zalałeś planszę w %d ruchach</string>
+    <string name="endgame_old_highscore_text" formatted="false">Najlepszy wynik dla planszy tego rodzaju: %d ruchów</string>
+    <string name="endgame_new_highscore_text">Nowy najlepszy wynik dla planszy tego rodzaju!</string>
+    <string name="endgame_lose_title">Gra skończona</string>
+    <string name="endgame_new_game_button">Nowa gra</string>
+    <string name="endgame_replay">Zagraj ponownie</string>
+    <string name="endgame_seed" fomatted="false">Zalążek: %s (stuknij aby skopiować)</string>
+
+    <!-- Seed Dialog -->
+    <string name="seed_dialog_title">Nowa gra z zalążka</string>
+    <string name="seed_dialog_edittext_prefix">Zalążek:</string>
+    <string name="seed_dialog_start">Start</string>
+    <string name="seed_dialog_cancel">Anuluj</string>
+
+    <!--Settings Activity-->
+    <string name="settings_settings">Ustawienia</string>
+    <string name="settings_num_colors">Liczba kolorów</string>
+    <string name="settings_board_size">Rozmiar planszy</string>
+    <string name="settings_apply_button">Zastosuj</string>
+    <string name="settings_color_blind">Tryb dla daltonistów</string>
+    <string name="settings_old_colors">Stary schemat kolorów</string>
+    <string name="settings_clear_high_scores_button">Wyczyść najlepsze wyniki</string>
+    <string name="settings_clear_high_scores_dialog_title">Czy wyczyścić najlepsze wyniki?</string>
+    <string name="settings_clear_high_scores_dialog_text">Wszystkie informacje o najlepszych wynikach zostaną usunięte.</string>
+    <string name="settings_clear_high_scores_dialog_confirm">Tak</string>
+    <string name="settings_clear_high_scores_dialog_cancel">Nie</string>
+    <string name="settings_clear_high_scores_toast">Wyczyszczono najlepsze wyniki</string>
+
+    <!--Info activity-->
+    <string name="info_license">Wydano na licencji MIT</string>
+    <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/GunshipPenguin/open_flood</a></string>
+    <string name="info_instructions_title">Rozgrywka</string>
+    <string name="info_instructions">Zaczynasz grę w lewym górnym rogu planszy. Stuknij w kolorowe pola na dole ekranu, aby zalać sąsiadujące komórki wybranym kolorem. Celem gry jest zalanie całej planszy jednym kolorem w mniej ruchów niż ich maksymalna dozwolona liczba.</string>
+    <string name="info_seeds_title">Zalążki</string>
+    <string name="info_seeds">Zalążki pozwalają zachować interesujące plansze, abyzagrać w nie później lub podzielić się z nimi ze znajomymi. Aby wygenerewać planszę z zalążka, przytrzymaj przycisk nowej gry.</string>
+    <string name="info_back">Cofnij</string>
+</resources>
