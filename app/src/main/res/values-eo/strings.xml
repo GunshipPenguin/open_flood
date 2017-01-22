@@ -1,1 +1,45 @@
+<resources>
+    <string name="app_name">Open Flood</string>
 
+    <!-- Game Activity -->
+    <string name="game_seed_copied">Tabulĝermo kopiita al tondejo</string>
+
+    <!-- End Game Dialog -->
+    <string name="endgame_win_title">Bonege</string>
+    <string name="endgame_win_text" formatted="false">Vi superverŝis la tubulon dum %d movoj</string>
+    <string name="endgame_old_highscore_text" formatted="false">Plej bona rezulto por tiu ĉi tabul-speco: %d movoj</string>
+    <string name="endgame_new_highscore_text">Nova plej bona rezulto por tiu ĉi tabul-speco!</string>
+    <string name="endgame_lose_title">Ludo finita</string>
+    <string name="endgame_new_game_button">Nova ludo</string>
+    <string name="endgame_replay">Reludi</string>
+    <string name="endgame_seed" fomatted="false">Tabulĝermo: %s (frapetu por kopii)</string>
+
+    <!-- Seed Dialog -->
+    <string name="seed_dialog_title">Nova ludo de tabulĝermo</string>
+    <string name="seed_dialog_edittext_prefix">Tabulĝermo:</string>
+    <string name="seed_dialog_start">Ekigi</string>
+    <string name="seed_dialog_cancel">Nuligi</string>
+
+    <!--Settings Activity-->
+    <string name="settings_settings">Agordoj</string>
+    <string name="settings_num_colors">Nombro da koloroj</string>
+    <string name="settings_board_size">Tabula grando</string>
+    <string name="settings_apply_button">Apliki</string>
+    <string name="settings_color_blind">Kolorblinda reĝimo</string>
+    <string name="settings_old_colors">Malnova kolor-skemo</string>
+    <string name="settings_clear_high_scores_button">Forigi plej bonajn rezultojn</string>
+    <string name="settings_clear_high_scores_dialog_title">Ĉu forigi plej bonajn rezultojn?</string>
+    <string name="settings_clear_high_scores_dialog_text">Ĉiuj informoj pri plej bonaj rezultoj estos forigitaj.</string>
+    <string name="settings_clear_high_scores_dialog_confirm">Jes</string>
+    <string name="settings_clear_high_scores_dialog_cancel">Ne</string>
+    <string name="settings_clear_high_scores_toast">Plej bonaj rezultoj forigitaj</string>
+
+    <!--Info activity-->
+    <string name="info_license">Eldonita sub MIT-permesilo</string>
+    <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/GunshipPenguin/open_flood</a></string>
+    <string name="info_instructions_title">Ludado</string>
+    <string name="info_instructions">Vi komencas ĉe maldekstra supra angulo de tabulo. Frapetu kolorajn butonojn sube de tabulo por superverŝi ĉiujn apudajn ĉelojn per elektita koloro. Luda celo estas superverŝi ĉiun tabulon per unu koloro dum malpli ol maksimuma permesata nombro da movoj.</string>
+    <string name="info_seeds_title">Tabulĝermoj</string>
+    <string name="info_seeds">Tabulĝermoj ebligas al vi konservi interesajn tabulojn por ludi ilin poste aŭ por konhavigi ilin kun amikoj. Por generi tabulon de tabulĝermon, premtenu butonon de nova ludo.</string>
+    <string name="info_back">Reveni</string>
+</resources>
