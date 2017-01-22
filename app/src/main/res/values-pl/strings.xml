@@ -40,6 +40,6 @@
     <string name="info_instructions_title">Rozgrywka</string>
     <string name="info_instructions">Zaczynasz grę w lewym górnym rogu planszy. Stuknij w kolorowe pola na dole ekranu, aby zalać sąsiadujące komórki wybranym kolorem. Celem gry jest zalanie całej planszy jednym kolorem w mniej ruchów niż ich maksymalna dozwolona liczba.</string>
     <string name="info_seeds_title">Zalążki</string>
-    <string name="info_seeds">Zalążki pozwalają zachować interesujące plansze, abyzagrać w nie później lub podzielić się z nimi ze znajomymi. Aby wygenerewać planszę z zalążka, przytrzymaj przycisk nowej gry.</string>
+    <string name="info_seeds">Zalążki pozwalają zachować interesujące plansze, aby zagrać w nie później lub podzielić się z nimi ze znajomymi. Aby wygenerewać planszę z zalążka, przytrzymaj przycisk nowej gry.</string>
     <string name="info_back">Cofnij</string>
 </resources>
