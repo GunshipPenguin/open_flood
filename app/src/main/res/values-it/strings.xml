@@ -39,7 +39,7 @@
     <string name="info_source"><a href="http://github.com/gunshippenguin/open_flood">github.com/GunshipPenguin/open_flood</a></string>
     <string name="info_instructions_title">Come si Gioca</string>
     <string name="info_instructions">
-        Inizi nell\'angolo in alto a destra del campo di gioco. Tocca i pulsanti colorati lungo la
+        Inizi nell\'angolo in alto a sinistra del campo di gioco. Tocca i pulsanti colorati lungo la
         parte inferiore del campo di gioco per inondare tutte le cellule adiacenti con quel colore. Lo scopo del gioco
         è quello di riempire l\'intero campo di gioco con un singolo colore in un numero  inferiore di mosse rispetto al
         massimo consentito.
