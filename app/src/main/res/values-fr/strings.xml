@@ -1,38 +1,38 @@
 <resources>
-    <string name="app_name">Open Flood </string>
+    <string name="app_name">Open Flood</string>
 
     <!-- Game Activity -->
-    <string name="game_seed_copied">Le tableau seed a copié dans le presse-papiers </string>
+    <string name="game_seed_copied">Seed du tableau copiée dans le presse-papier</string>
 
     <!-- End Game Dialog -->
     <string name="endgame_win_title">Excellent</string>
-    <string name="endgame_win_text" formatted="false">Vous avez inondé le plateau en %d coups</string>
-    <string name="endgame_old_highscore_text" formatted="false">Record personnel pour ce type de tableau: %d coups</string>
-    <string name="endgame_new_highscore_text">Nouveau record personnel pour ce type de tableau!</string>
-    <string name="endgame_lose_title">Fin de Partie</string>
-    <string name="endgame_new_game_button">Nouvelle Partie </string>
-    <string name="endgame_replay">Rejouez</string>
-    <string name="endgame_seed" fomatted="false">Seed: %s (tapez pour copier)</string>
+    <string name="endgame_win_text" formatted="false">Vous avez inondé le tableau en %d coups</string>
+    <string name="endgame_old_highscore_text" formatted="false">Record personnel pour ce type de tableau : %d coups</string>
+    <string name="endgame_new_highscore_text">Nouveau record personnel pour ce type de tableau !</string>
+    <string name="endgame_lose_title">Fin de partie</string>
+    <string name="endgame_new_game_button">Nouvelle partie </string>
+    <string name="endgame_replay">Rejouer</string>
+    <string name="endgame_seed" fomatted="false">Seed : %s (appuyez pour copier)</string>
 
     <!-- Seed Dialog -->
-    <string name="seed_dialog_title">Nouveau jeu à partir d\'un seed </string>
-    <string name="seed_dialog_edittext_prefix">Seed:</string>
-    <string name="seed_dialog_start">Commencez</string>
-    <string name="seed_dialog_cancel">Annulez</string>
+    <string name="seed_dialog_title">Nouveau jeu à partir d\'une seed</string>
+    <string name="seed_dialog_edittext_prefix">Seed :</string>
+    <string name="seed_dialog_start">Commencer</string>
+    <string name="seed_dialog_cancel">Annuler</string>
 
     <!-- Settings Activity -->
     <string name="settings_settings">Paramètres</string>
-    <string name="settings_num_colors">Nombre de Couleurs</string>
-    <string name="settings_board_size">Taille du Tableau</string>
-    <string name="settings_apply_button">Appliquez </string>
-    <string name="settings_color_blind">Mode Daltonien</string>
-    <string name="settings_old_colors">Schéma précédent de couleurs</string>
-    <string name="settings_clear_high_scores_button">Effacez les Meilleurs Scores</string>
-    <string name="settings_clear_high_scores_dialog_title">Effacez les Meilleurs Scores?</string>
-    <string name="settings_clear_high_scores_dialog_text">Toute l\'information de Meilleurs Scores sera effacée.</string>
+    <string name="settings_num_colors">Nombre de couleurs</string>
+    <string name="settings_board_size">Taille du tableau</string>
+    <string name="settings_apply_button">Appliquer</string>
+    <string name="settings_color_blind">Mode daltonien</string>
+    <string name="settings_old_colors">Schéma de couleurs précédent</string>
+    <string name="settings_clear_high_scores_button">Effacer les meilleurs scores</string>
+    <string name="settings_clear_high_scores_dialog_title">Effacer les meilleurs scores ?</string>
+    <string name="settings_clear_high_scores_dialog_text">Tous les meilleurs scores seront effacés.</string>
     <string name="settings_clear_high_scores_dialog_confirm">Oui</string>
     <string name="settings_clear_high_scores_dialog_cancel">Non</string>
-    <string name="settings_clear_high_scores_toast">Meilleurs Scores effacés</string>
+    <string name="settings_clear_high_scores_toast">Meilleurs scores effacés</string>
 
     <!-- Info activity -->
     <string name="info_license">Diffusé sous la licence MIT</string>
@@ -40,7 +40,7 @@
     <string name="info_instructions_title">Jeu</string>
     <string name="info_instructions">
        Vous commencez dans le coin supérieur gauche du tableau. Appuyez sur les boutons de couleur
-       vers le fond du tableau pour inonder toutes les cellules adjacentes remplies avec cette couleur.
+       en bas du tableau pour inonder toutes les cellules adjacentes remplies avec cette couleur.
        Le but du jeu est de remplir la totalité du tableau avec une seule couleur en moins du nombre maximal de coups autorisés.
     </string>
     <string name="info_seeds_title">Seeds</string>
