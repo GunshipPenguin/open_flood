@@ -1,7 +1,6 @@
 package com.gunshippenguin.openflood;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -29,8 +28,7 @@ public class Game {
         this.numColors = numColors;
         this.seed = generateRandomSeed();
         initBoard();
-
-        maxSteps = (int) 30 * (boardSize * numColors) / (17 * 6);
+        initMaxSteps();
     }
 
     public Game(int boardSize, int numColors, String seed) {
@@ -39,8 +37,17 @@ public class Game {
         this.numColors = numColors;
         this.seed = seed;
         initBoard();
+        initMaxSteps();
+    }
 
-        maxSteps = (int) 30 * (boardSize * numColors) / (17 * 6);
+    public Game(int[][] board, int boardSize, int numColors, int steps, String seed) {
+        // Restore board
+        this.board = board;
+        this.boardSize = boardSize;
+        this.numColors = numColors;
+        this.steps = steps;
+        this.seed = seed;
+        initMaxSteps();
     }
 
     private String generateRandomSeed() {
@@ -50,6 +57,10 @@ public class Game {
             currSeed += SEED_CHARS.charAt(rand.nextInt(SEED_CHARS.length()));
         }
         return currSeed;
+    }
+
+    public int[][] getBoard() {
+        return board;
     }
 
     public int getColor(int x, int y) {
@@ -81,6 +92,10 @@ public class Game {
             }
         }
         return;
+    }
+
+    private void initMaxSteps() {
+        maxSteps = (int) 30 * (boardSize * numColors) / (17 * 6);
     }
 
     public void flood(int replacementColor) {
