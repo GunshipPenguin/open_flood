@@ -36,7 +36,6 @@ To build and install on \*nix:
 
 ```
 ./gradlew installDebug
-
 ```
 
 To build on Windows:
